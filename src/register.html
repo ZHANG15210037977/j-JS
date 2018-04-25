@@ -44,10 +44,10 @@
                     <input type="password" name="user_password_again" placeholder="请确认密码">
                     <div class="code clear-float">
                         <input  type="number" name="code_number" placeholder="请输入短信验证码">
-                        <div class="code_button" onclick="register.get_code()">获取验证码</div>
+                        <div class="code_button" onclick="register.get_code(event)">获取验证码</div>
                     </div>
 
-                    <div class="button">注册</div>
+                    <div class="button" onclick="register.register_user(event)">注册</div>
                 </form>
 
             </div>
