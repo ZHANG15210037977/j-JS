@@ -34,14 +34,19 @@ let register = (function () {
         message: 'xxx',
         title: '×',
         bg_color: '#FF4949'
-    },{
+    }, {
         message: '请输入六位验证码',
         title: '×',
         bg_color: '#FF4949'
-    },{
+    }, {
         message: '输入验证码有误',
         title: '×',
         bg_color: '#FF4949'
+    },
+    {
+        message: '注册成功，即将返回登录页面',
+        title: '√',
+        bg_color: '#13CE66'
     }]
 
     function addNode(messageList) {//表单消息提示处理函数，参数为提示信息对象
@@ -97,7 +102,7 @@ let register = (function () {
 
 
     function insertTimeout(event) {//60s计时函数
-        
+
         if (max !== 0) {
             event.target.innerText = `${max}s后重新获取`;
             max--;
@@ -110,7 +115,7 @@ let register = (function () {
             return;
         }
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
             insertTimeout(event);
 
@@ -137,7 +142,7 @@ let register = (function () {
                             event.target.onclick = null;
                             event.target.innerText = `60秒后重新获取`;
                             event.target.style.backgroundColor = '#999999';
-                            setTimeout(insertTimeout(event),1000);
+                            setTimeout(insertTimeout(event), 1000);
 
                         } else {
                             messageList[5].message = res.info;
@@ -156,7 +161,7 @@ let register = (function () {
             xhr.open("post", "http://yjhapi.agxx.club/iweb/Sendsms/send", true);
             xhr.setRequestHeader("Cotent-Type", "application/json");
             let para = JSON.stringify({
-                mobile:inputeListe[0].value
+                mobile: inputeListe[0].value
             });
 
             console.log(para);
@@ -170,26 +175,57 @@ let register = (function () {
 
     }
 
-    function register_user(){
+    function register_user() {
 
         let inputeListe = document.getElementsByTagName('input');
-        console.log(inputeListe);
 
         let key1 = check_data(inputeListe);
         let key2 = true;
-        
-        if(inputeListe[3].value == ''){
+
+        if (inputeListe[3].value == '') {
             addNode(messageList[6]);
             key2 = false;
         }
 
-        if(inputeListe[3].value != '' && inputeListe[3].value != register_code){
+        if (inputeListe[3].value != '' && inputeListe[3].value != register_code) {
             addNode(messageList[7]);
             key2 = false;
         }
 
-        console.log(key1);
-        console.log(key2);
+        if (key1 && key2) {
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4) {
+                    let res = JSON.parse(xhr.responseText.substring(1));
+                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                        if (res.status == 1) {
+                            addNode(messageList[8]);
+                            setTimeout(() => {
+                                window.location.href = "file:///E:/project/src/index.html";
+                            }, 1000)
+                        } else {
+                            messageList[5].message = res.info;
+                            addNode(messageList[5]);
+                        }
+                    } else {
+                        messageList[5].message = '请求出错，返回状态码为:' + xhr.status
+                        addNode(messageList[5]);
+                    }
+
+                }
+            }
+
+            xhr.open("post", "http://yjhapi.agxx.club/iweb/regist/index", true);
+            xhr.setRequestHeader("Cotent-Type", "application/json");
+            let para = JSON.stringify({
+                mobile: inputeListe[0].value,
+                pwd: inputeListe[1].value,
+                sms_code: inputeListe[3].value
+            });
+
+            console.log(para);
+            xhr.send(para);
+        }
     }
     return {
         get_code,
