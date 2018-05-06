@@ -1,0 +1,1011 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language="JavaScript" type="text/javascript">
+
+        //股神算法1
+        function sort_1(n) {
+
+
+            if (n === 1) {
+
+                return 1;
+
+            } else {
+
+                let count = 1;
+                let key = true;
+
+                let sum = 1;
+
+                for (let i = 2; i <= n;) {
+                    if (key) {
+                        for (let j = 1; j <= count && i <= n; j++, i++) {
+                            sum++
+                        }
+                        key = false;
+                        count++;
+                    } else {
+                        sum--;
+                        key = true;
+                        i++;
+                    }
+                }
+
+                return sum;
+
+            }
+        }
+
+        //股神算法2
+        function sort_2(n) {
+
+
+            if (n === 1) {
+
+                return 1;
+
+            } else {
+
+                let count = 1;
+                let add_time = 0;
+                let sum = 1;
+
+                for (let i = 2; i <= n; i++) {
+                    if (add_time < count) {
+                        sum++;
+                        add_time++;
+                    } else {
+                        add_time = 0;
+                        sum--;
+                        count++;
+                    }
+                }
+
+                return sum;
+
+            }
+        }
+
+        //百度熊乘法表 暴力算法（no）
+        function ddBear_1(n, m, k) {
+
+            let res = [];
+
+            for (let i = 0; i < n; i++) {
+
+                for (let j = 0; j < m; j++) {
+
+
+                    let num = (i + 1) * (j + 1);
+                    let key = res.length;
+                    if (res.length != 0) {
+                        for (let z = 0; z < res.length; z++) {
+                            if (num < res[z]) {
+                                key = z;
+                                break;
+                            }
+                        }
+                        res.splice(key, 0, num);
+
+                    } else {
+                        res[res.length] = 1;
+                    }
+
+                }
+
+            }
+
+
+            return res[k - 1];
+
+        }
+
+        //百度熊乘法表 二分法
+        function ddBear_2(n, m, k) {
+
+            if (k == 1) {
+                return 1;
+            }
+
+            let low = 1;
+            let high = n * m;
+            let mid = Math.floor((high + low) / 2);
+
+
+            function getSum(n, m, k) {
+                let sum = 0;
+                for (let i = 1; i <= m && k >= i; i++) {
+                    if (i * n <= k) {
+                        sum = sum + n;
+                    } else {
+                        sum = sum + Math.floor(k / i);
+                    }
+                }
+
+                return sum;
+
+            }
+
+            function cmp(L, H, M, n, m, k) {
+                let Msum = getSum(n, m, M);
+
+                //console.log( H + '--'+ M + '--' + L );
+                // console.log(Msum  + '---' + M)
+                if (Msum === k) {
+                    return M;
+                } else {
+                    if (Msum > k) {
+                        if (getSum(n, m, M - 1) <= k) {
+                            return M;
+                        } else {
+                            return cmp(L, M, Math.floor((L + M ) / 2), n, m, k);
+                        }
+                    } else if (Msum < k) {
+
+                        if (getSum(n, m, M + 1) >= k) {
+                            return M + 1;
+                        } else {
+                            return cmp(M, H, Math.floor((H + M) / 2), n, m, k);
+                        }
+
+                    }
+                }
+            }
+
+            return cmp(low, high, mid, n, m, k);
+            //return getSum(3,2,3);
+
+
+        }
+
+        //美团排序
+        function getMessage(n) {
+            let arr = [];
+            class Subject {
+                constructor(name, up, pass) {
+                    let that = this;
+                    this.name = name;
+                    this.up = up;
+                    this.pass = pass;
+                    this.grade = (function () {
+                        let key = Math.round(pass / up * 100);
+
+                        if (key <= 30) {
+                            return 5;
+                        } else if (key <= 60) {
+                            return 4
+                        } else {
+                            return 3
+                        }
+                    })()
+
+
+                }
+            }
+
+            function sorts(arr) {
+                arr.sort(function (a, b) {
+                    if (a.name < b.name) {
+                        return -1;
+                    } else {
+                        return 1
+                    }
+                })
+            }
+
+
+            for (let i = 0; i < n; i++) {
+                let lines = read_line().split(' ');
+                let name = lines[0].trim();
+                let up = parseInt(lines[1].trim());
+                let pass = parseInt(lines[2].trim());
+
+                let obj = new Subject(name, up, pass);
+                arr.push(obj);
+            }
+
+            sorts(arr);
+
+            for (let i = 0; i < n; i++) {
+                printsth(arr[i].name, ' ', arr[i].grade, '\n');
+            }
+
+        }
+
+
+        //循环插入排序
+        function insert_sort_1(arr) {
+            if (arr.length == 1) {
+                return arr;
+            } else {
+                for (let i = 1; i < arr.length; i++) {
+
+                    let key = arr[i];
+                    // 此处J大于0，且要 保证键值之前的数大于键值才进入循环。
+                    for (let j = i; j > 0 && arr[j - 1] > key; j--) {
+                        arr[j] = arr[j - 1];
+                        arr[j - 1] = key;
+                    }
+                    console.log(arr);
+                }
+
+                return arr;
+            }
+        }
+
+        //递归插入排序
+
+        function insert_sort_2(arr) {
+
+
+            if (arr.length === 1) {
+                return arr;
+            } else {
+                let res = [];
+                for (let i = 0; i < (arr.length - 1); i++) {
+                    res[i] = arr[i];
+                }
+
+
+                res = insert_sort_2(res);
+
+
+                res[res.length] = arr[arr.length - 1];
+
+
+                for (let i = res.length - 1; (i > 0) && (arr[arr.length - 1] < res[i - 1]  ); i--) {
+                    res[i] = res[i - 1];
+                    res[i - 1] = arr[arr.length - 1];
+
+                }
+
+
+                return res;
+
+            }
+
+        }
+
+        //递归归并分治排序
+        function merge_sort(arr) {
+
+            //哨兵写法
+            /*
+             function merge(arr1,arr2) {
+             let len = arr1.length + arr2.length;
+
+             //考虑arr1是否为最底层，即尾部是否有无穷大项目。
+             if(arr1[arr1.length - 1] < Number.POSITIVE_INFINITY){
+             arr1.push(Number.POSITIVE_INFINITY);
+             }else{
+             //如有无穷大 返回数组有效长度减一
+             len--;
+             }
+
+             //考虑arr2是否为最底层，即尾部是否有无穷大项目。
+             if(arr1[arr2.length - 1] < Number.POSITIVE_INFINITY){
+             arr2.push(Number.POSITIVE_INFINITY);
+             }else {
+             //如有无穷大 返回数组有效长度减一
+             len--;
+             }
+
+             let arr3 = new Array(len);
+             for(let i = 0,j = 0,z = 0;z < arr3.length;z++){
+             if(arr1[i] > arr2[j]){
+             arr3[z] = arr2[j++];
+             }else {
+             arr3[z] = arr1[i++];
+             }
+             }
+             return arr3;
+             }
+             */
+
+            //排断长度合并写法
+            function merge(arr1, arr2) {
+
+
+                let arr3 = [];
+                let i = 0;
+                let j = 0;
+
+
+                while (i < arr1.length && j < arr2.length) {
+                    if (arr1[i] > arr2[j]) {
+                        arr3[i + j] = arr2[j++];
+                    } else {
+                        arr3[i + j] = arr1[i++];
+                    }
+                }
+
+                if (i === arr1.length) {
+                    while (j < arr2.length) {
+                        arr3[i + j] = arr2[j++];
+                    }
+                } else {
+                    while (i < arr1.length) {
+                        arr3[i + j] = arr1[i++];
+                    }
+                }
+                return arr3;
+            }
+
+            function dichotomy(arr) {
+                if (arr.length === 1) {
+                    //问题足够小，已触底，解决
+                    return arr;
+                } else if (arr.length === 2) {
+                    return merge([arr[0]], [arr[1]]);
+                    //问题足够小，已触底，解决
+                } else {
+                    //问题不够小，未触底，递归继续分解
+                    let arr1 = [];
+                    let arr2 = [];
+                    for (let i = 0, j = 0, z = 0; z < arr.length; z++) {
+                        if (z % 2 === 0) {
+                            arr1[i++] = arr[z];
+                        } else {
+                            arr2[j++] = arr[z];
+                        }
+                    }
+
+                    //分解
+                    arr1 = dichotomy(arr1);
+                    arr2 = dichotomy(arr2);
+
+                    //归并返回
+                    return merge(arr1, arr2);
+
+                }
+
+            }
+
+            return dichotomy(arr);
+
+        }
+
+        function maxSonArray(arr) {
+            //过中值最大子数组遍历函数
+            function maxSonMid(arr, mid) {
+                let res = {
+                    key: Number.NEGATIVE_INFINITY,
+                    str: 0,
+                    end: arr.length - 1,
+                    arr: []
+                };
+
+                for (let i = mid; i >= 0; i--) {
+                    let sum = 0;
+                    for (let z = i; z < mid; z++) {
+                        sum += arr[z];
+                    }
+                    for (let j = mid; j < arr.length; j++) {
+                        sum += arr[j];
+                        if (sum > res.key) {
+                            res.str = i;
+                            res.end = j;
+                            res.key = sum;
+                        }
+
+                    }
+
+
+                }
+
+                for (let s = res.str, a = 0; s <= res.end; s++) {
+                    res.arr[a++] = arr[s];
+                }
+
+
+                return res;
+
+            }
+
+            let len = arr.length;
+            let key = true;
+
+
+            for (let i = 0; i < len; i++) {
+
+                if (arr[i] < 0) {
+                    key = false;
+                    break;
+                }
+
+            }
+
+            if (key) {
+                let res = {
+                    key: arr[0],
+                    str: 0,
+                    end: len - 1,
+                    arr: arr
+                };
+
+
+                return res;
+
+            }
+
+
+            if (len === 1) {
+
+                let res = {
+                    key: Number.NEGATIVE_INFINITY,
+                    str: 0,
+                    end: 0,
+                    arr: [arr[0]]
+                };
+
+
+                return res;
+            } else {
+
+
+                let arr1 = [];
+                let arr2 = [];
+                let mid = Math.floor(arr.length / 2);
+                for (let i = 0, j = 0, z = 0; z < arr.length; z++) {
+                    if (z < mid) {
+                        arr1[i++] = arr[z];
+                    } else {
+                        arr2[j++] = arr[z];
+                    }
+                }
+
+
+                let res1 = maxSonArray(arr1);
+                let res2 = maxSonArray(arr2);
+                let res3 = maxSonMid(arr, mid);
+
+
+                if (res1.key >= res2.key && res1.key >= res3.key) {
+
+                    return res1;
+                } else if (res2.key >= res1.key && res2.key >= res3.key) {
+
+                    return res2;
+                } else if (res3.key >= res1.key && res3.key >= res2.key) {
+
+                    return res3;
+                }
+
+            }
+
+        }
+
+        //魔法币
+        function moreny_wo(n) {
+
+
+            function doSomeSing(n, str) {
+
+                if (n % 2 === 0) {
+                    if (n === 0) {
+                        return str;
+                    }
+
+                    str += 2;
+
+                    str = doSomeSing((n - 2) / 2, str);
+                    return str;
+
+                } else {
+
+                    if (n === 1) {
+                        return str + 1;
+                    }
+
+                    str += 1;
+
+                    str = doSomeSing((n - 1) / 2, str);
+                    return str;
+
+                }
+
+            }
+
+
+            return doSomeSing(n, '').split('').reverse().join('');
+
+        }
+
+        //定义类排序
+        function study_sort(n, type, arr) {
+
+            class Study {
+                constructor(name, key) {
+                    this.name = name;
+                    this.key = key;
+                }
+            }
+
+            let res = [];
+
+            res[0] = new Study(arr[0].trim().split(' ')[0], parseInt(arr[0].trim().split(' ')[1]));
+            for (let i = 1; i < n; i++) {
+                let list = arr[i].trim().split(' ');
+                res[i] = new Study(list[0], parseInt(list[1]));
+                if (res[i].key < res[i - 1].key) {
+                    let sum = res[i];
+                    res[i] = res[i - 1];
+                    res[i - 1] = sum;
+                }
+            }
+
+            if (type === 0) {
+                res.reverse();
+            }
+
+            return res;
+
+        }
+
+
+        //正则匹配
+        function mac_string(str) {
+            let res
+            res = str.match(/email:[\d]+@[a-zA-Z0-9]+.[a-zA-z0-9]{1,3}|phone:[\d]{11}/g);
+
+            //res = str.match(/^\sjava\s/gi);
+
+            return res;
+        }
+
+        //网易实习编程
+        function niu_str(n, str) {
+            let arr = str.split('');
+            let arrs = ['N', 'E', 'S', 'W'];
+            let key = 0;
+
+
+            for (let i = 0; i < n; i++) {
+
+                if (arr[i] === 'L') {
+
+                    key--;
+
+                    if (key < 0) {
+                        key = 3;
+                    }
+
+                }else {
+
+                    {
+                        key++;
+                        if (key > 3) {
+                            key = 0;
+                        }
+                    }
+
+                }
+            }
+
+            return arrs[key];
+
+
+        }
+
+        function niu_list(str,end) {
+            let res = 0;
+            let key = '';
+            let arr = [];
+
+            for(let i = 1;i < str;i++){
+                arr[i - 1] = key + i;
+                key = arr[i - 1];
+                arr[i - 1] = parseInt(arr[i - 1]);
+            }
+            for(let i = str;i <= end;i++){
+                arr[i - 1] = key + i;
+                key = arr[i - 1];
+                arr[i - 1] = parseInt(arr[i - 1]);
+                if((arr[i - 1] % 3) === 0){
+                    res++;
+                }
+            }
+
+            return res;
+            
+        }
+
+        function niu_XY(n,k){
+            let sum = 0;
+
+            function mac(x,y,k) {
+
+                if((x%y) >= k){
+                    return true;
+                }
+
+                return false;
+
+            }
+
+            for(let x = 1;x <= n; x++){
+
+                for(let y = k;y <= n ;y++){
+
+                    if(mac(x,y,k)){
+                        sum++;
+                    }
+
+                }
+
+            }
+
+            return sum;
+
+        }
+
+        //快速排序
+        function fast_sort(arr,str,end){
+
+            function diverd(arr,str,end) {
+                let key = arr[end];
+                let j = str -1;
+                let sum;
+                for(let i = str;i < end;i++ ){
+
+                    if(arr[i] <= key){
+                        j++;
+                         sum = arr[j];
+                        arr[j] = arr[i];
+                        arr[i] = sum;
+                    }
+                }
+
+                sum =  arr[ j + 1];
+                arr[j + 1] = arr[end];
+                arr[end] = sum;
+
+
+                return j + 1;
+
+
+            }
+
+
+            function work(arr,str,end) {
+
+                if(str < end){
+                    let p = diverd(arr,str,end);
+                    work(arr,str,p-1);
+                    work(arr,p+1,end);
+                }
+
+            }
+
+            work(arr,str,end);
+
+        }
+        //线性排序----计数排序
+        function line_time_count_sort(arr,k) {
+            console.log(arr);
+            let sum = [];
+            let res = [];
+
+
+            //计数数组初始化为0；1——k
+            for(let i = 0; i<= k;i++){
+                sum[i] = 0;
+            }
+
+
+            //检索传入数组各值个数，存入对应计数数组位置
+            for(let i = 0;i < arr.length;i++){
+
+                sum[arr[i]]++;
+
+            }
+
+            //计数数组重新赋值，变为值前有多少个大于等于值
+            for(let i = 1;i <= k;i++){
+                sum[i] += sum[i -1];
+            }
+
+            //对应位置写入；
+            for(let i = 0;i < arr.length;i++){
+                res[sum[arr[i]] - 1] = arr[i];
+                sum[arr[i]]--;//重复值减1，放置。
+            }
+
+            return res;
+
+        }
+        
+        //动态规划钢筋切割
+        function steel(n,p) {
+            let res = {
+                key:[],
+                list:[],
+                method:'',
+                maxKey:0
+            };
+            res.key[0] = 0;
+            res.list[0] = 0;
+            for(let i = 1;i <= n;i++){
+                res.key[i] = Number.NEGATIVE_INFINITY;
+                for(let j = 1;j <= i;j++){
+                    if(p[j] + res.key[i - j] > res.key[i]){
+                        res.key[i] = p[j] + res.key[i - j]
+                        res.list[i] = j;
+                    }
+                }
+            }
+
+            function method_sort(n) {
+                if(n === 0){
+                    return 0;
+                }
+                res.method = res.method + '-' + res.list[n];
+                method_sort(n - res.list[n]);
+            }
+
+            res.maxKey = res.key[n];
+            method_sort(n);
+            return res;
+        }
+
+
+
+        function nui_1(str) {
+
+            let len = str.length;
+            let two;
+            let key = 1;
+            for(var i = 1;i < len;i++){
+                if(str[0] != str[i]){
+                    key++;
+                    two = str[i];
+                    break;
+                }
+            }
+
+            for(;i < len;i++){
+                if(str[i]!= str[0] && str[i] != two){
+                    key++;
+                }
+            }
+
+            switch (key){
+                case 1: return 1;break;
+                case 2: return 2;break;
+                default:return 0;
+
+            }
+
+        }
+
+        function nui_2(arr) {
+            arr.sort((a,b)=>{
+                if(a > b){
+                    return 1;
+                }else {
+                    return -1;
+                }
+            });
+            let key = true;
+            let d = arr[1] - arr[0];
+
+            for(let i = 2;i < arr.length;i++){
+
+                if(arr[i] - arr[i - 1] != d){
+                    key = false;
+                    break;
+                }
+            }
+
+            if(key){
+                return 'Possible';
+            }else {
+                return 'Impossible';
+            }
+
+        }
+
+        function aaa(str){
+            let arr = str.split('');
+            for(let i = 0;i < arr.length;i++){
+                if(arr[i] === ' '){
+                    arr.splice(i,1,'%','2','0');
+                }
+            }
+            return arr.join('');
+        }
+
+        //腾讯笔试2
+        function penguin_2(day,sum) {
+            let key = 0;
+            let N = 0;
+            let last_range = 0;
+            let twoDaysSum = 0;
+            if(day % 2 === 0){
+                 twoDaysSum = Math.pow(2,day/2) -1;
+                 last_range = (sum- twoDaysSum) / Math.pow(2,day/2);
+                 N = day/2;
+
+            }else {
+                 twoDaysSum = Math.pow(2,(day - 1)/2) -1;
+                 last_range = (sum- twoDaysSum)/ Math.pow(2,(day - 1)/2);
+                 N = (day-1)/2 + 1;
+
+            }
+            console.log('twoDaysSum:' + twoDaysSum + '      last_range:' + last_range + '       N:' + N)
+
+            for(let i = 1;i <= last_range;i++){
+
+
+
+                if((i * (Math.pow(2,N) -1)) <= (sum- twoDaysSum) && key < i * Math.pow(2,N -1)){
+
+
+                    key = i * Math.pow(2,N -1);
+
+                    console.log('i:' + i +  '     key:' + key);
+                }
+
+            }
+
+            return key;
+
+
+        }
+
+
+        //京东笔试
+        function JD_1(str){
+            let res = 0;
+
+            let pre,next ;
+
+            for(let i = 0; i < str.length ; i++){
+                if(i === 0){
+
+                    next = str[i + 1];
+                    if(str[i] !== next){
+                        res++;
+                    }
+
+                }else if(i === str.length - 1){
+                    pre = str[i - 1];
+                    if(str[i] !== pre){
+                        res++;
+                    }
+
+                }else {
+
+                    pre = str[i - 1];
+                    next = str[i + 1];
+                    if(str[i] !== pre || str[i] !== next){
+                        res++;
+                    }
+
+                }
+            }
+
+            return res;
+        }
+
+        //求最大公约数
+        function max_commonDivisor(a,b) {
+            let B_dividor = a;
+            let divisor = b;
+            let key = b;
+            while(key !== 0){
+
+                key = B_dividor % divisor;
+                B_dividor = divisor;
+                divisor = key;
+            }
+
+            return B_dividor;
+        }
+
+        //动态规划求1-n最小公倍数
+        function JD_2(n) {
+            let arr = [0,1,2];
+            if(n <= 2){
+                return arr[n];
+            }
+
+            for(let i = 3;i <= n;i++){
+                arr[i] = (arr[i - 1] * i) / max_commonDivisor(arr[i - 1],i);
+            }
+
+            return arr[n] % 987654321;
+        }
+
+        //牛客网笔试
+        function nuike_sort(arr) {
+            for(let i = 0; i < arr.length;i++){
+                let key = arr[i];//arr[i] 取出
+                arr.splice(i,1);//arr[i]移除
+
+                if(arr.indexOf(key) === -1){//判断arr[i]是否重复
+                    arr.splice(i,0,key);//不重复 放回原位
+                }
+            }
+
+            arr.sort((a,b) => {
+                if(a < b){
+                    return -1
+                }else {
+                    return 1;
+                }
+            })
+
+            return arr;
+        }
+        function nuike_Calculation(str) {
+
+            function Q(a,b) {
+                return a*b - (a+b);
+            }
+            function N(a,b) {
+                return a*a + b;
+            }
+            let Rem_value = nuike_sort(str.substring(str.indexOf("(")+1,str.indexOf(")")));//取出 括号内的部分递归运算
+
+            let sta = 0;
+            let end = 0;
+            for(let i = 0;i < str.length;i++){
+                if(str[i] !== '(' || str[i] !== '（'){
+                    sta = i;
+                    break;
+                }
+            }
+
+            for(let i = str.length - 1;i <= 0 ;i--){
+                if(str[i] !== ')' || str[i] !== '）'){
+                    end = i;
+                    break;
+                }
+            }
+
+
+            str.splice(sta,end-sta,Rem_value)
+
+            for(let i = 1;i < str.length;i++){
+
+                if(str[i] === 'Q'){
+                    str.splice(i - 1,3,Q(str[i-1],str[i+1]));
+                }
+
+                if(str[i] === 'N'){
+                    str.splice(i - 1,3,N(str[i-1],str[i+1]));
+                }
+
+            }
+
+            return str;
+
+        }
+
+
+
+        //微银笔试
+        function wordAbbreviation(str){
+
+            if(str.length >= 10){
+                let res = [];
+                res[0] = str[0];
+                res[1] = str.length - 2;
+                res[2] = str[str.length - 1];
+
+                return res.join('');
+            }else {
+                return str;
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../vue.js"></script>
+    <script src="index.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box" >
+    原数组：{{message}}<br>
+    升序排列后：{{merge_sort_up}}<br>
+    降序排列后：{{merge_sort_dow}}
+</div>
+</body>
+<script>
+    var res =new Return_data([3,41,52,26,38,57,9,49,4]);
+    var app = new Vue({
+        data:{
+            message:res.Data,
+            message_sort_up:[6,6,6,6]
+        },
+        el:'.box',
+        computed:{
+            merge_sort_up:function () {
+                return res.merge_sort_up(1,7);
+            },
+            merge_sort_dow:function () {
+                return res.merge_sort_dow(1,7);
+            }
+        }
+    })
+
+
+</script>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" language="JavaScript">
+
+        //节点类
+        class Node{
+            constructor(element){
+                this.element = element;
+                this.next = null;
+            }
+        }
+
+        class Llist{
+            constructor(){
+                this.head = new Node('head');
+            }
+            findNext(item){
+                let currNode = this.head;
+                while(currNode.element !== item){
+                    currNode = currNode.next;
+                }
+
+                return currNode;
+            }
+
+            findPre(nodeItem){
+                let currNode = this.head;
+                while(currNode.next.element !== nodeItem){
+                    currNode = currNode.next;
+                }
+                return currNode;
+            }
+
+            insert(newNodeItem,item){
+
+                let newNode = new Node(newNodeItem);
+                let currNode = this.findNext(item);
+                newNode.next = currNode.next;
+                currNode.next = newNode;
+
+            }
+
+            deleteNode(deleteNodeItem){
+
+                let currNode = this.findPre(deleteNodeItem);
+                currNode.next = currNode.next.next;
+
+
+            }
+
+            disPlay(){
+                let currNode = this.head;
+                while(currNode.next !== null){
+                    console.log(currNode.next.element);
+                    currNode = currNode.next;
+                }
+            }
+        }
+
+        let newList = new Llist();
+        newList.insert('大辉哥是渣渣','head');
+        newList.insert('吴啊卓是渣渣','大辉哥是渣渣');
+        newList.insert('我小儿子是渣渣','吴啊卓是渣渣');
+        newList.insert('阿龟哥是渣渣','我小儿子是渣渣');
+
+
+
+
+        function printListFromTailToHead(head)
+        {
+            let arr = [];
+            let i = 0;
+            let currNode = head;
+            while(currNode){
+                arr[i++] = currNode.element;
+                currNode = currNode.next;
+            }
+
+            arr.reverse();
+
+            for(let j = 0;j < arr.length;j++){
+                console.log(arr[j]);
+            }
+        }
+
+        printListFromTailToHead(newList.head);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script language="JavaScript" type="text/javascript">
+
+        function Person(name = '莫名人',age = '0'){
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype = {
+            constructor:Person,
+            sayName:function () {
+                alert(this.name);
+            }
+        };
+
+        function Man(name = '莫名男人',age = '0',height){
+            Person.call(this,name,age);
+             this.height = height||170;
+        }
+
+
+        (function(){ //中间类定义
+            function Temp(){}  //中间类构造函数，调用空构造函数。替换组合继承式继承法法，调用父类构造函数，避免私有属性变共有。
+            Temp.prototype = Person.prototype;//原型链传递，父类原型传递给中间类原型，构造函数中constructor 指向父类构造函数，确保原型链完整
+            //注意：不能在中间类里进行子类方法拓展，上一行进行的是浅复制（指针复制,Temp.prototype和Person.prototype指向同意对象（父类构造函数），所以对中间类方法的拓展，都是对父类的方法拓展（修改父类原型对象）。
+            Man.prototype = new Temp();
+        })();
+
+
+        Man.prototype.constructor = Man;
+        Man.prototype.sayHeight = function () {  //子类方法拓展，修改子类原型对象
+            alert(this.height);
+        };
+
+
+        var man_1 = new Man('张桂军','22',200);
+        console.log(man_1);
+        man_1.sayName();
+        man_1.sayHeight();
+
+        if('abc' < 'abd'){
+            ddd = 'ssssss'
+        }
+        console.log(ddd);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

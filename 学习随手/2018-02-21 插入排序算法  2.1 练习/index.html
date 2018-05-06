@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box">
+    原数组为：{{message}}<br>
+    从小到大排序为：{{sort_up}}<br>
+    从大到小排序为：{{sort_down}}<br>
+    查找{{ves}}是否在数组内:{{searchs}}<br>
+    array_1:{{array_1}};<br>
+    array_2:{{array_2}};<br>
+    array_3:{{array_3s}};
+</div>
+</body>
+<script src="index.js"></script>
+<script>
+
+
+    var app = new Vue({
+        el: '.box',
+        data: {
+            message: res.Data,
+            ves:'s',
+            array_1:[1,0,0,0,1,1,1,1,1,1],
+            array_2:[1,1,1,1,1,1],
+            array_3:null
+        },
+        computed: {
+
+            sort_up: function () {
+                return this.message = res.insertion_sort('up');
+            },
+            sort_down: function () {
+                return this.message = res.insertion_sort('down');
+            },
+            searchs:function () {
+                return this.message = res.search(this.ves);
+            },
+            array_3s:function () {
+                return this.array_3 = and_two_array(this.array_1,this.array_2);
+            }
+        }
+    })
+</script>
+</html>

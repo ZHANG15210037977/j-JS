@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS ES6 接口继承</title>
+    <script>
+        class Person{
+            constructor(name = '莫名人',age = '0'){
+            this.name = name;
+            this.age = age;
+            }
+
+            sayMessage(){
+                alert(`我的名字是${this.name},我的年龄是${this.age}，谢谢大家`);
+            }
+
+            sayHi(){
+                console.log('Hi!');
+            }
+        }
+
+        let person1 = new Person('张桂军',22);
+
+        var sss = 174
+        const persons = {
+            sss,
+            name:'哈哈哈',
+            height:170,
+            sayName(){
+                alert(`${this.name}`);
+            },
+            sayMessage(){
+                alert(`我的名字是${this.name},我的身高是${this.height},谢谢`);
+            }
+        }
+        console.log(persons);
+
+        class Man extends Person{
+            constructor(name = '嘞爸爸',age = '0',height = 170){
+                super(name,age);
+                this.height = height;
+            }
+            sayMessage(){
+                 alert(`我的名字是${this.name}，我的年龄是${this.age}，我的身高是${this.height}。`)
+            }
+        }
+
+        let man_1 = new Man('张桂军','21', 220);
+        man_1.sayMessage();
+        man_1.sayHi();
+        console.log(man_1);
+
+        for(let i = 0;i < 5;i++){
+
+            for(let j = 0; j < 5 && i < 5;j++,i++){
+                console.log(`${i}-${j}\n`)
+            }
+
+        }
+
+        let a = [0,1,2,3,4,5,6,7,8,9];
+
+
+        let key = 2;
+
+       for(let i = 1;i <3;i++){
+           console.log(22222)
+       }
+
+    </script>
+    <style>
+        .box{
+            width: 168px;
+            height: 60px;
+            background: blue;
+            margin-right: 20px;
+            list-style: none;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+
+<div style="width: 980px;height: 5680px;margin: 0 auto;background: red; padding: 0 20px 0 20px;">
+    <ul style="width: 940px;height: 80px;">
+
+        <li class="box"></li>
+        <li class="box"></li>
+        <li class="box"></li>
+        <li class="box"></li>
+        <li class="box"></li>
+
+    </ul>
+</div>
+
+</body>
+</html>
