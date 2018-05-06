@@ -1,0 +1,24 @@
+<!--pages/curriculum/study/join/join.wxml-->
+<view class='top'></view>
+<view class='center'>
+
+  <view class='center_box'>
+    <form bindsubmit="formSubmit">
+
+      <view class='title'>请输入课号:</view>
+      <input name="curriculum_num" p type="text"></input>
+
+      <view class='title'>请输入密匙:</view>
+      <input name="curriculum_passWord" p type="password"></input>
+
+      <view class="row">
+        <button type="primary" form-type="submit">加入</button>
+        <button type="primary" form-type="reset">重置</button>
+      </view>
+    </form>
+  </view>
+
+<loading wx:if='{{loading_key}}'>
+  加载中...
+</loading>
+</view>

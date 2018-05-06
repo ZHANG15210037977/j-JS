@@ -1,0 +1,152 @@
+.head
+{
+    width:100%;
+    background-color:#870E09;
+}
+.top
+{
+    overflow: hidden;
+}
+.logo
+{
+    width:100%;
+    height:165px;
+    float:left;
+    background: url('../images/logo.jpg')center center;
+    background-size: cover;
+}
+
+
+
+.dh
+{
+    width:100%;
+    background-image:url('../images/dh.gif');
+}
+.dhc
+{
+    width:1200px;
+    height:55px;
+    margin:0px auto;
+}
+.dhc ul
+{
+    margin:0px auto;
+    padding:0px;
+}
+.dhc li
+{
+    float:left;
+    height:55px;
+    width:120px;
+    text-align:center;
+    list-style: none;
+}
+.dhc li a
+{
+    color:#ffffff;
+    float:left;
+    height:55px;
+    width:120px;
+    line-height: 55px;
+    font-weight:bold;
+    font-size:18px;
+    text-decoration: none;
+}
+.dhc li a:hover
+{
+    width: 114px;
+    background-color: #870E09;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 22px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #716261;
+}
+.dhc .more-box li a:hover{
+    margin-left: 3px;
+    box-shadow: inset 1px 1px 10px #b7afaf;
+}
+.dhc li.more{
+    position: relative;
+    display: none;
+}
+.dhc li .more-box{
+    position: absolute;
+    top: 55px;
+    left: -3px;
+    width: 120px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+}
+.dhc li a span
+{
+    color: #ffffff;
+    font-size:12px;
+    font-weight: normal;
+}
+.dhc a:hover span
+{
+    color: #ffffff;
+    font-size:12px;
+    font-weight: normal;
+}
+.dhc .cur
+{
+    background-color:#870E09;
+    color:#FFFFFF;
+}
+.dhc .cur span
+{
+    color: #ffffff;
+    font-size:12px;
+    font-weight: normal;
+}
+.banner{
+    width: 100%;
+    height: 520px;
+}
+.banner .imgPlay{
+    width: 1680px;
+    height: 520px;
+    position: relative;
+    left: 50%;
+    margin-left: -840px;
+    overflow: hidden;
+}
+.banner .imgPlay ul{
+    margin: 0;
+    padding: 0;
+    width: 8400px;
+    height: 520px;
+}
+.banner .imgPlay li{
+    width: 1680px;
+    height: 520px;
+    list-style: none;
+    float: left;
+}
+.banner .imgPlay li img{
+    width: 1680px;
+    height: 520px;
+}
+.banner .imgPlay .prev{
+    position: absolute;
+    top: 50%;
+    margin-top: -24px;
+    left: 10%;
+    width: 50px;
+    height: 47px;
+    background: url('../images/r_an.png');
+}
+.banner .imgPlay .next{
+    position: absolute;
+    top: 50%;
+    margin-top: -24px;
+    right: 10%;
+    width: 50px;
+    height: 47px;
+    background: url('../images/left_an.png');
+}

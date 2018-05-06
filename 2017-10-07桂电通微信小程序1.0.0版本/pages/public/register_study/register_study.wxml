@@ -1,0 +1,36 @@
+<!--pages/public/register_study/register_study.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="top">学生信息注册</view>
+  <view class="row">
+    <text>学号：</text>
+    <input name="study_no"  type="text" />
+  </view>
+
+  <view class="row">
+    <text>姓名：</text>
+    <input name="study_name" p type="text" />
+  </view>
+
+  <view class="row">
+    <text>电话：</text>
+    <input name="study_phone" p type="text" />
+  </view>
+
+  <view class="row">
+    <text>密码：</text>
+    <input name="study_password"  type="password" />
+  </view>
+
+  <view class="row">
+    <text>确认：</text>
+    <input name="study_password_again"  type="password" />
+  </view>
+
+  <view class="row">
+    <button type="primary" form-type="submit">注册</button>
+    <button type="primary" form-type="reset">重置</button>
+  </view>
+</form>
+<loading wx:if='{{loading_key}}'>
+  注册中...
+</loading>

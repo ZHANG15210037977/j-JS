@@ -1,0 +1,77 @@
+<!--pages/curriculum/teacher/check_up/check_up.wxml-->
+<scroll-view scroll-y="true" style=" height: {{window_height}}px;" bindscrolltolower="onShow">
+  <view class='box'>
+    <view class='top'></view>
+    <view class='center'>
+
+
+
+      <view class='switch'>签到已{{request_key_message}}：
+        <switch checked='{{switch_key}}' bindchange='lecture_key_change'></switch>
+      </view>
+      <view class='more'>
+        <form bindsubmit="formSubmit">
+          <input type="text" name="study_no" placeholder="请输入欲搜索学生的学号"></input>
+          <button form-type='submit' plain='true'>
+            <image mode='aspectFit' src='../../../../imges/q.png'></image>
+          </button>
+        </form>
+      </view>
+      <view class='center_box'>
+        <view class='tb_title'>
+          <view class='tb_1'>
+            序号
+          </view>
+          <view class='tb_2'>学号
+          </view>
+          <view class='tb_3'>
+            姓名
+          </view>
+          <view class='tb_4'>
+            状态
+          </view>
+        </view>
+        <block wx:for="{{listData}}" wx:key="{{index}}">
+          <view style="background-color:#e6f3f9" class="tb_content" wx:if="{{index % 2 == 0}}">
+            <view class='tb_1 th'>
+              {{index + 1}}
+            </view>
+            <view class='tb_2 th'>
+              {{item.study_no}}
+            </view>
+            <view class='tb_3 th'>
+              {{item.study_name}}
+            </view>
+            <view class='tb_4 th' style="{{leave_type_color[index]}}">
+              {{item[sums]}}
+            </view>
+          </view>
+          <view class="tb_content" wx:else>
+            <view class='tb_1 th'>
+              {{index + 1}}
+            </view>
+            <view class='tb_2 th'>
+              {{item.study_no}}
+            </view>
+            <view class='tb_3 th'>
+              {{item.study_name}}
+            </view>
+            <view class='tb_4 th' style="{{leave_type_color[index]}}">
+              {{item[sums]}}
+            </view>
+          </view>
+        </block>
+      </view>
+
+
+      <view class='no_message' hidden='{{no_key}}'>
+        <image mode='center' src='../../../../imges/no.png'></image>
+      </view>
+
+
+    </view>
+  </view>
+</scroll-view>
+<loading wx:if='{{loading_key}}'>
+  加载中...
+</loading>

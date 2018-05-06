@@ -1,0 +1,83 @@
+/* pages/wx_leave/details_leave_message/details_leave_message.wxss */
+.box{
+  width: 750rpx;
+  height: 2302rpx;
+  background:linear-gradient(180deg,#6886a7,#edf4fd);
+  overflow: hidden;
+}
+.box .part_box{
+  position: relative;
+  left: 36rpx;
+  width: 592rpx;
+  padding: 43rpx;
+  color: #ffffff;
+  font-size: 41rpx;
+  font-weight: bold;
+  background: rgba(14,37,63,0.5);
+
+}
+.box .box_one{
+  top: 48rpx;
+  height: 118rpx;
+}
+.box .box_two{
+  top: 87rpx;
+  height: 190rpx;
+}
+.box .box_three{
+  top: 128rpx;
+  padding: 96rpx 43rpx 43rpx 43rpx;
+  height: 230rpx;
+  font-size: 30rpx;
+  line-height: 48rpx;
+  text-indent: 60rpx;
+}
+.box .box_four{
+  top: 175rpx;
+  padding: 94rpx 24rpx 94rpx 24rpx;
+  width: 630rpx;
+  height: 840rpx;
+}
+.box .box_four image{
+  width: 630rpx;
+  height: 840rpx;
+}
+.box .spacing{
+  margin-top: 15rpx;
+}
+.title{
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 257rpx;
+  height: 56rpx;
+  background: rgba(255,255,255,0.42);
+  font-size: 36rpx;
+  text-indent: 0;
+  text-align: center;
+  line-height: 56rpx;
+  color: black;
+  font-weight: bold;
+}
+form{
+  position: relative;
+  top: 245rpx;
+  left: 36rpx;
+  width: 550rpx;
+  padding: 0 39rpx 0 39rpx;
+  margin: 0 auto;
+  height: 100rpx;
+  display: block;
+}
+form button{
+  width:200rpx;
+height:80rpx;
+float:left;
+margin-right:59rpx;
+line-height:80rpx;
+font-size:36rpx;
+font-weight:bold;
+color:#ffffff;
+background-color:#00a0e9;
+
+}

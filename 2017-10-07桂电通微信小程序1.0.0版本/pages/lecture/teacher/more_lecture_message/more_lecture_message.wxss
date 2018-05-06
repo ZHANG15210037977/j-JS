@@ -1,0 +1,71 @@
+.top {
+  width: 100%;
+  height: 70rpx;
+  background: linear-gradient(90deg, #4e8efc, #38b9fd);
+}
+
+.center {
+  width: 750rpx;
+  padding-top: 75rpx;
+}
+
+.center .lecture_name {
+  width: 670rpx;
+  margin: 0 auto;
+  text-indent: 62rpx;
+  font-size: 58rpx;
+  font-weight: bolder;
+  letter-spacing: 12rpx;
+  font-family: '黑体';
+  margin-bottom: 34rpx;
+}
+
+.center .center_box {
+  width: 600rpx;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.center .center_box .lecture {
+  width: 600rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  font-family: '华文细黑';
+}
+
+.center .center_box .lecture_introduction {
+  width: 660rpx;
+  margin-bottom: 34rpx;
+}
+
+.center .center_box .lecture_introduction text {
+  font-size: 36rpx;
+  font-weight: bold;
+  font-family: '华文细黑';
+}
+
+.center .center_box .lecture_introduction scroll-view {
+  width: 612rpx;
+  height: 240rpx;
+  background-color: #eae9e9;
+  font-size: 28rpx;
+  text-indent: 56rpx;
+  padding: 24rpx;
+  margin-top: 12rpx;
+  border-radius: 8rpx;
+}
+
+.center .center_box button {
+  position: relative;
+  top: 50rpx;
+  left: 200rpx;
+  width: 120rpx;
+  background-color: #00a0e9;
+  color: #fff;
+  font-size: 36rpx;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: 1.8;
+}

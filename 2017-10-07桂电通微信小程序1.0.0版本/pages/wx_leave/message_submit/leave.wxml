@@ -1,0 +1,77 @@
+<!--leave.wxml-->
+<form bindsubmit="formSubmit" report-submit='true'>
+  <view class="top">请假信息</view>
+  <view class="row">
+    <text>批假老师姓名：</text>
+    <picker name="teacherName" value="{{teacherArray[index].teacher_name}}" mode="selector" range="{{teacherArray}}" range-key="teacher_name" bindchange="teacherNameChage">
+      <view>{{teacherArray[index].teacher_name}}</view>
+    </picker>
+  </view>
+
+  <view class="row">
+    <text>申请人姓名：</text>
+    <view>{{studentName}}</view>
+  </view>
+
+  <view class="row">
+    <text>申请人学号：</text>
+    <view>{{studentNo}}</view>
+  </view>
+
+  <view class="row">
+    <text>开始日期：</text>
+    <picker name="startDate" value="{{startDate}}" mode="date" bindchange="leaveStartDateChange">
+      <view>{{startDate}}</view>
+    </picker>
+  </view>
+
+  <view class="row">
+    <text>开始时间：</text>
+    <picker name="startTimes" value="{{startTimes}}" mode="time" bindchange="leaveStartTimeChange">
+      <view>{{startTimes}}</view>
+    </picker>
+  </view>
+
+  <view class="row">
+    <text>结束日期：</text>
+    <picker name="endDate" value="{{endDate}}" mode="date" bindchange="leaveEndDateChange">
+      <view>{{endDate}}</view>
+    </picker>
+  </view>
+
+  <view class="row">
+    <text>结束时间：</text>
+    <picker name="endTimes" value="{{endTimes}}" mode="time" bindchange="leaveEndTimeChange">
+      <view>{{endTimes}}</view>
+    </picker>
+  </view>
+
+  <view class="row">
+    <text>请假时长：</text>
+    <input name="leaveDates" value="{{leaveDates}}" type="text" />
+  </view>
+
+  <view class="row">
+    <text>请假原因：</text>
+    <textarea name="leaveReason" class=".textarea" placeholder="" placeholder-style="color:red;" />
+  </view>
+
+  <view class="row">
+    <text>上传请假凭证：</text>
+    <switch checked='true' bindchange="leave_prove_switch"></switch>
+  </view>
+
+  <view hidden='{{leave_prove_key}}' class="leave_prove_box">
+    <image bindtap="get_leave_prove_img" hidden='{{leave_prove_imges_key}}' src="{{up_img_url}}" mode="aspectFit"></image>
+    <view hidden='{{leave_prove_img_key}}'>
+      <button bindtap="get_leave_prove_img">十 上传凭证</button>
+    </view>
+  </view>
+  <view class="row">
+    <button type="primary" form-type="submit">请假</button>
+    <button type="primary" form-type="reset">重置</button>
+  </view>
+</form>
+<loading wx:if='{{loading_key}}'>
+  请稍后...
+</loading>

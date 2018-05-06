@@ -1,0 +1,11 @@
+<!--pages/curriculum/teacher/more_curriculumMessage/more_curriculumMessage.wxml-->
+<view class='top'></view>
+<view class='center'>
+<view class='lecture_name'>课名:{{listData.curriculum_name}}</view>
+  <view class='center_box'>
+    <view class='lecture'>课号：{{listData.curriculum_num}}</view>
+    <view class='lecture'>地点：{{listData.curriculum_address}}</view>
+    <view class='lecture'>密匙：{{listData.curriculum_passWord}}</view>
+    <button hidden='{{request_key}}' bindtap='curriculum_modify'>修改</button>
+  </view>
+</view>

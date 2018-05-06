@@ -1,0 +1,45 @@
+<!--pages/lecture/teacher/creat_lecture/creat_lecture.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="top">新增讲座</view>
+  <view class="row">
+    <text>讲座名：</text>
+    <input name="lecture_name"  type="text" />
+  </view>
+
+  <view class="row">
+    <text>主讲人：</text>
+    <input name="lecture_man" p type="text" />
+  </view>
+
+  <view class="row">
+    <text>日期：</text>
+    <picker name="startDate" value="{{startDate}}" mode="date" bindchange="startDateChange">
+      <view>{{startDate}}</view>
+    </picker>
+  </view>
+
+  <view class="row">
+    <text>时间：</text>
+    <picker name="startTimes" value="{{startTimes}}" mode="time" bindchange="startTimeChange">
+      <view>{{startTimes}}</view>
+    </picker>
+  </view>
+
+  <view class="row">
+    <text>地点：</text>
+    <input name="lecture_address"  type="text" />
+  </view>
+
+  <view class="row">
+    <text class='textarea'>简介：</text>
+    <textarea name="lecture_introduction" class="textarea" placeholder="" placeholder-style="color:red;" />
+  </view>
+
+  <view class="row">
+    <button type="primary" form-type="submit">增加</button>
+    <button type="primary" form-type="reset">重置</button>
+  </view>
+</form>
+<loading wx:if='{{loading_key}}'>
+  上传中...
+</loading>

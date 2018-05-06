@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/public/index/index",
+    "pages/curriculum/teacher/check_up/check_up",
+    "pages/curriculum/study/join/join",
+    "pages/curriculum/teacher/check_message/check_message",
+    "pages/curriculum/teacher/change_message/change_message",
+    "pages/curriculum/teacher/more_curriculumMessage/more_curriculumMessage",
+    "pages/curriculum/teacher/creat_curriculum/creat_curriculum",
+    "pages/curriculum/teacher/index/index",
+    "pages/curriculum/study/index/index",
+    "pages/home_page/study/index/index",
+    "pages/home_page/teacher/index/index",
+    "pages/lecture/teacher/index/index",
+    "pages/lecture/study/index/index",
+    "pages/lecture/teacher/lecture_modify/lecture_modify",
+    "pages/lecture/teacher/creat_lecture/creat_lecture",
+    "pages/wx_leave/message_submit/leave",
+    "pages/wx_leave/study/index",
+    "pages/public/register_study/register_study",
+    "pages/public/register_teacher/register",
+    "pages/public/Land_teacher/P_leave",
+    "pages/public/Land_study/Land_study",
+    "pages/wx_leave/details_leave_message/details_leave_message",
+    "pages/wx_leave/show_leaveMessage/show_leaveMessage",
+    "pages/lecture/teacher/more_lecture_message/more_lecture_message",
+    "pages/lecture/study/more_lecture_message/more_lecture_message",
+    "pages/lecture/teacher/lecture_request/lecture_request",
+    "pages/curriculum/study/check_message/check_message"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "桂电通",
+    "navigationBarTextStyle": "black"
+  }
+}

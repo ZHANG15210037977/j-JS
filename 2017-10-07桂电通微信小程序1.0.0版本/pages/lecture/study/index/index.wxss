@@ -1,0 +1,69 @@
+/* pages/lecture/study/index/index.wxss */
+.top {
+  width: 100%;
+  height: 70rpx;
+  background: linear-gradient(90deg, #4e8efc, #38b9fd);
+  margin-bottom: 8rpx;
+}
+
+scroll-view {
+  padding-bottom: 112rpx;
+  display: block;
+ background-color: #d6d5d6; 
+}
+
+.center {
+  width: 750rpx;
+  height: 100%;
+  background-color: #d6d5d6;
+}
+
+.center .center_box {
+  margin-top: 8rpx;
+  width: 640rpx;
+  height: 426rpx;
+  padding: 40rpx 70rpx 40rpx 40rpx;
+  background-color: #f4f4f4;
+  z-index: 1;
+}
+
+.center .center_box .lecture_name {
+  text-indent: 62rpx;
+  font-size: 42rpx;
+  font-weight: bolder;
+  letter-spacing: 12rpx;
+  font-family: '黑体';
+  margin-bottom: 22rpx;
+}
+
+.center .center_box .message {
+  line-height: 66rpx;
+  font-size: 28rpx;
+  text-indent: 44rpx;
+}
+
+.showMore {
+  width: 120rpx;
+  height: 60rpx;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: 60rpx;
+  color: #fff;
+  font-size: 32rpx;
+  background-color: #00a0e9;
+  position: relative;
+  top: -75rpx;
+  left: 240rpx;
+}
+
+.sign_switch {
+  position: relative;
+  top: -64rpx;
+  left: -50rpx;
+  float: right;
+}
+.center .no_message image {
+  background-color: #f4f4f4;
+  width: 750rpx;
+  height: 1090rpx;
+}

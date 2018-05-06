@@ -1,0 +1,50 @@
+/* pages/curriculum/study/join/join.wxss */
+.top {
+  width: 100%;
+  height: 70rpx;
+  background: linear-gradient(90deg, #4e8efc, #38b9fd);
+}
+.center{
+  width: 750rpx;
+  height: 954rpx;
+  padding-top: 180rpx;
+  background-color: #929292;
+}
+.center .center_box{
+  width: 380rpx;
+  height: 480rpx;
+  padding: 120rpx 125rpx 120rpx 125rpx;
+  background-color: #f4f4f4;
+  border-radius:8rpx; 
+  margin: 0 60rpx;
+}
+.center .center_box .title{
+  font-size: 32rpx;
+  font-weight: bold;
+  letter-spacing: 6rpx;
+}
+
+.row{
+  margin-top: 50rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.row button{
+    padding: 0 48rpx;
+    font-size: 32rpx;
+    background-color: #00a0e9;
+    margin-left: 20rpx;
+}
+.center .center_box input{
+  display: block;
+  width: 300rpx;
+  height: 20rpx;
+  margin: 30rpx 0 30rpx 80rpx ;
+  color: #000000;
+  background-color: #e3e3e3;
+  border-radius: 6rpx;
+  padding: 6rpx;
+  text-align: center;
+}

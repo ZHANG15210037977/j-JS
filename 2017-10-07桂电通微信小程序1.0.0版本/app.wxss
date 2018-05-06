@@ -1,0 +1,67 @@
+/**app.wxss**/
+.clearfloat:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+.top{
+  width: 550rpx;
+  height: 64rpx;
+  background: #CFCFCF;
+  color: blue;
+  line-height: 48rpx;
+  font-size: 48rpx;
+  text-align: center;
+}
+page{
+  background: #F4F4F4;
+}
+.tabBar{
+  width: 750rpx;
+  height: 90rpx;
+  padding: 10rpx 60rpx 10rpx 60rpx;
+  position:fixed;
+  background-color: #FFFFFF;
+  z-index: 9999;
+}
+.tabBar .menu_list{
+  width: 94rpx;
+  height: 90rpx;
+  margin-right: 84rpx;
+  float: left;
+}
+.tabBar .menu_list image{
+  width: 94rpx;
+  height: 90rpx;
+  display: block;
+  margin: 0 auto 0;
+}
+.tabBar .menu_list text{
+  text-align: center;
+  width: 94rpx;
+  height: 90rpx;
+  display: block;
+  position: relative;
+  top: -66.66%;
+}
+.clearFloat{
+  zoom:1;
+}
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}

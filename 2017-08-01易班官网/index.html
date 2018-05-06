@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>易班管理中心</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="css/index.css" >
+</head>
+<body>
+<div class="box_head">
+    <!--导航条-->
+    <div >
+        <!--小于980px导航条-->
+        <nav  class="navbar navbar-default minNav">
+            <div class="container-fluid">
+                <!-- Logo和隐藏小屏幕按钮 -->
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#minNavFold" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><div class="glyphicon glyphicon-home minNav-Home"></div></a>
+            </div>
+                <!-- 导航内容 -->
+                <div class="collapse navbar-collapse navbar-right" id="minNavFold">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#"><div>易班简介</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>通知公告</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>易动社区</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>今日推荐</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>桂电趣事</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>青春风采</div></a>
+                        </li>
+                    </ul>
+                </div><!-- /折叠结束标签 -->
+            </div><!-- /自适应结束标签 -->
+        </nav>
+        <!--大于980px导航条-->
+        <nav style="display: none"  class="navbar navbar-default box_nav">
+                <a class="navbar-brand" href="#">
+                    <img  alt="Brand" src="images/logo.png">
+                </a>
+
+                <div class="nav_barText" >
+                    <ul class="nav navbar-nav">
+                        <li class="nav_home">
+                            <a href="#"><div style="font-size: 32px;" class="glyphicon glyphicon-home" ></div> </a>
+                        </li>
+                        <li>
+                            <a href="#"><div>易班简介</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>通知公告</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>易动社区</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>今日推荐</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>桂电趣事</div></a>
+                        </li>
+                        <li class="">
+                            <a href="#"><div>青春风采</div></a>
+                        </li>
+                    </ul>
+                </div>
+        </nav>
+    </div>
+    <!--轮播页-->
+    <div class="bgCollapse">
+        <div id="carousel-example-generic" class="carousel slide bigMoves" data-ride="carousel">
+            <!-- 下方切换按钮 -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+            </ol>
+
+            <!-- 幻灯片内容部分 -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="images/bigmove_1.jpg">
+                </div>
+                <div class="item">
+                    <img src="images/bigmove_2.jpg">
+                </div>
+                <div class="item">
+                    <img src="images/bigmove_3.jpg">
+                </div>
+                <div class="item">
+                    <img src="images/bigmove_4.jpg">
+                </div>
+            </div>
+
+            <!-- 前后切换控制部分 -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="box_center">
+
+    <div class="box_container ">
+        <div class="container">
+            <div class="box_part row">
+                <div class="box_partOne col-md-6">
+                    <!——标题——!>
+                    <div>
+                        <div>
+                            <a href="#"><img class="float_left img-responsive" src="images/notice.png" width="289px" height="68px"></a>
+                        </div>
+                        <div class="part_one_list">
+                            <a href="#"><img class="float_right" src="images/list.png" width="79px" height="68px"></a>
+                        </div>
+                        <div class="clearFloat"></div>
+                    </div>
+                    <!——内容——!>
+                    <div>
+                        <ul class="list-group">
+                            <li class="list-group-item part_one_1">
+                            <div class="pp"><h1>14</h1><h5>7月</h5></div>
+                            <div class="pf"><p>关于开展2017年易班全国 共建高校大学生</p></div>
+                        </li>
+                            <li class="list-group-item part_one_1">
+                                <div class="pp"><h1>13</h1><h5>7月</h5></div>
+                                <div class="pf"><p>关于开展2017年易班全国 共建高校大学生</p></div>
+                            </li>
+                            <li class="list-group-item part_one_1">
+                                <div class="pp"><h1>12</h1><h5>7月</h5></div>
+                                <div class="pf"><p>关于开展2017年易班全国 共建高校大学生</p></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="box_partOne col-md-6">
+                    <!——标签——!>
+                        <div>
+                            <div>
+                                <a href="#"><img class="float_left img-responsive" src="images/comminity.png" width="319px" height="68px"></a>
+                            </div>
+                            <div class="part_one_list">
+                                <a href="#"><img class="float_right" src="images/list.png" width="79px" height="68px"></a>
+                            </div>
+                            <div class="clearFloat"></div>
+                        </div>
+                    <!——内容——!>
+                        <div>
+                           <ul class="list-group">
+                               <li class="list-group-item part_one_2">
+                                   <div class="pp float_left"><img src="images/partOne_pp.jpg" width="193px" height="105px"></div>
+                                   <div class="pf float_right">
+                                       <p>
+                                           <a href="#"><span><7月14日></span></a>
+                                           习近平指出，中加两国都是亚太地区重要国家 ，在实现各自国家发展、应对 全球性挑战方面…
+                                           <a href="#"><span>【详情】</span></a>
+                                       </p>
+                                   </div>
+                                   <div class="clearFloat"></div>
+                               </li>
+                               <li class="list-group-item part_one_2">
+                                   <div class="pp float_right"><img src="images/partOne_pp.jpg" width="193px" height="105px"></div>
+                                   <div class="pf float_left">
+                                       <p>
+                                           <a href="#"><span><7月14日></span></a>
+                                           习近平指出，中加两国都是亚太地区重要国家 ，在实现各自国家发展、应对 全球性挑战方面…
+                                           <a href="#"><span>【详情】</span></a>
+                                       </p>
+                                   </div>
+                                   <div class="clearFloat"></div>
+                               </li>
+                           </ul>
+                        </div>
+                </div>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+    </div>
+
+    <div class="box_container ">
+        <div class="container">
+            <div class="box_part">
+                <!——标题——!>
+                <div class="container_auto">
+                    <div class="float_left">
+                        <a href="#"><img class="img-responsive" src="images/rocommondehor.png" width="397px"
+                                         height="75px"></a>
+                    </div>
+                    <div class="float_right">
+                        <ul class="list_fours">
+                            <li onclick="met('aabb',1,4)"></li>
+                            <li onclick="met('aabb',2,4)"></li>
+                            <li onclick="met('aabb',3,4)"></li>
+                            <li onclick="met('aabb',4,4)"></li>
+                        </ul>
+                    </div>
+                    <div class="clearFloat"></div>
+                </div>
+                <!——内容——!>
+                <div class="row">
+                    <div class="container_auto">
+                        <div class="row">
+                            <div class="col-md-8 col-xs-12 hidden_box">
+                                <div id="aabb_1" class="part_twoBody_ul">
+                                    <ul class="row media-list">
+                                        <li class="col-md-6 col-xs-12 media">
+                                            <div class="media-body">摄影·生活</div>
+                                            <div class="media-right">
+                                                <a href=""><img class="media-object" src="images/partTwo_pp2.jpg" width="270px" height="270px"></a>
+                                            </div>
+                                        </li>
+                                        <li class="col-md-6 col-xs-12 media">
+                                            <div class="media-body">动物·大自然</div>
+                                            <div class="media-right">
+                                                <a href=""><img class="media-object" src="images/partTwo_pp1.jpg" width="270px" height="270px"></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="aabb_2" class="part_twoBody_ul">
+                                    <ul class="row media-list">
+                                        <li class="col-md-6 col-xs-12 media">
+                                            <div class="media-body">摄影·生活</div>
+                                            <div class="media-right">
+                                                <a href=""><img class="media-object" src="images/partTwo_pp3.jpg" width="270px" height="270px"></a>
+                                            </div>
+                                        </li>
+                                        <li class="col-md-6 col-xs-12 media">
+                                            <div class="media-body">动物·大自然</div>
+                                            <div class="media-right">
+                                                <a href=""><img class="media-object" src="images/partTwo_pp3.jpg" width="270px" height="270px"></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="aabb_3" class="part_twoBody_ul">
+                                    <ul class="row media-list">
+                                        <li class="col-md-6 col-xs-12 media">
+                                            <div class="media-body">摄影·生活</div>
+                                            <div class="media-right">
+                                                <a href=""><img class="media-object" src="images/partTwo_pp4.jpg" width="270px" height="270px"></a>
+                                            </div>
+                                        </li>
+                                        <li class="col-md-6 col-xs-12 media">
+                                            <div class="media-body">动物·大自然</div>
+                                            <div class="media-right">
+                                                <a href=""><img class="media-object" src="images/partTwo_pp4.jpg" width="270px" height="270px"></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div id="aabb_4" class="part_twoBody_ul">
+                                    <ul class="row media-list">
+                                        <li class="col-md-6 col-xs-12 media">
+                                            <div class="media-body">摄影·生活</div>
+                                            <div class="media-right">
+                                                <a href=""><img class="media-object" src="images/partTwo_pp1.jpg" width="270px" height="270px"></a>
+                                            </div>
+                                        </li>
+                                        <li class="col-md-6 col-xs-12 media">
+                                            <div class="media-body">动物·大自然</div>
+                                            <div class="media-right">
+                                                <a href=""><img class="media-object" src="images/partTwo_pp2.jpg" width="270px" height="270px"></a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12 part_twoBody_App">
+                                <div>
+                                    <ul>
+                                        <li><a href="#"><img width="37px" height="37px"  src="images/partTwo_pp7.jpg"><p>迅雷</p></a></li>
+                                        <li><a href="#"><img width="37px" height="37px"  src="images/partTwo_pp6.jpg"><p>迅雷</p></a></li>
+                                        <li><a href="#"><img width="37px" height="37px"  src="images/partTwo_pp6.jpg"><p>迅雷</p></a></li>
+                                        <li><a href="#"><img width="37px" height="37px"  src="images/partTwo_pp7.jpg"><p>迅雷</p></a></li>
+                                    </ul>
+                                </div>
+                                <div class="AppImg">
+                                    <img width="58px" height="270px" src="images/partTwo_pp5.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+    </div>
+
+    <div class="box_container">
+        <div class="container">
+            <div class="box_part">
+                <!——标题——!>
+                <div class="container_auto">
+                    <div class="float_left">
+                        <a href="#"><img class="img-responsive" src="images/interesting.png" width="321px"
+                                         height="75px"></a>
+                    </div>
+                    <div class="float_right part_Three_list">
+                        <ul class="list_fours">
+                            <li onclick="met('ccdd',1,4)"></li>
+                            <li onclick="met('ccdd',2,4)"></li>
+                            <li onclick="met('ccdd',3,4)"></li>
+                            <li onclick="met('ccdd',4,4)"></li>
+                        </ul>
+                    </div>
+                    <div class="clearFloat"></div>
+                </div>
+                <!——内容——!>
+                <div class="container_auto part_Three">
+                    <div id="ccdd_1" class="partThree_body">
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月14日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月13日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月12日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="ccdd_2" class="partThree_body">
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月11日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月10日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月19日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="ccdd_3" class="partThree_body">
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月8日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月7日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月6日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="ccdd_4" class="partThree_body">
+                        <ul class="media-list">
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月5日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月4日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="media">
+                                <div class="media-left">
+                                    <a href="#"><img width="100px" height="100px" class="media-object"
+                                                     src="images/partThree_pp.jpg"></a>
+                                </div>
+                                <div class="media-body">
+                                    <p>
+                                        <a href="#"><span>【7月3日】</span></a>
+                                        毕业季就是求职季，可能很多同学会疑虑、会烦恼，自己能做什么，适合做什么。大部分来自农
+                                        村的同学心里可能会这么想：自己家是农村的，家庭贫困，没钱没权没势；不喜欢自己所学的专业、不擅
+                                        长；样貌不出众，矮黑胖；性格内敛，脾气差，不善社交等…
+                                        <a href="#"><span>【详情】</span></a>
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+    </div>
+
+    <div class="box_container ">
+        <div class="container">
+            <div class="box_part">
+                <!——标题——!>
+                <div class="container_auto" >
+                    <div class="float_left">
+                        <a href="#"><img class="img-responsive" src="images/demeanour.png" width="318" height="75"></a>
+                    </div>
+                    <div class="float_right">
+                        <ul class="list_fours">
+                            <li onclick="met('eeff',1,4)"></li>
+                            <li onclick="met('eeff',2,4)"></li>
+                            <li onclick="met('eeff',3,4)"></li>
+                            <li onclick="met('eeff',4,4)"></li>
+                        </ul>
+                    </div>
+                    <div class="clearFloat"></div>
+                </div>
+                <!——内容——!>
+                <div class="container_auto">
+                    <ul id="eeff_1" class="row">
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp1.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp1.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp1.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp1.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="eeff_2" class="row">
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp2.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp2.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp2.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp2.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="eeff_3" class="row">
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp3.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp3.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp3.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp3.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="eeff_4" class="row">
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp4.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp4.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp4.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-3 col-xs-6 ">
+                            <div class="thumbnail">
+                                <div class="">
+                                    <a href=""> <img src="images/partFour_pp4.jpg" width="212px" height="334px"></a>
+                                </div>
+                                <div class="partFour_body_pf ">
+                                    <p>乱七八糟的海水灯塔和一片黑</p>
+                                    Time:7月16日
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+    </div>
+    
+</div>
+<div class="box_foot container-fluid">
+    <div class="foot_top">
+        <img src="images/foot_Link.png" width="214px" height="59px" >
+    </div>
+    <div class="foot_Link">
+        <ul class="row">
+            <li class="col-xs-6 col-md-3"><a href="http://www.guet.edu.cn/extGuetWeb/">桂林电子科技大学</a></li>
+            <li class="col-xs-6 col-md-3"><a href="http://gxdxszx.myclub2.com/">广西大学生在线</a></li>
+            <li class="col-xs-6 col-md-3"><a href="http://www.yiban.cn/yforumprovince/indexorg/puid/6125719" >易路有你</a></li>
+            <li class="col-xs-6 col-md-3"><a href="http://xlpc.bilian.xin/a/login">知心后台</a></li>
+        </ul>
+    </div>
+    <hr>
+    <div class="foot_copyright">
+        <ul>
+            <li> 广西大学生在线</li>
+            <li>广西高校易班发展研究中心</li>
+            <li>桂林电子科技大学易班发展中心</li>
+            <li>桂林电子科技大学信息与通信学院新媒体中</li>
+        </ul>
+        <p>桂ICP备xxxxxxxx号-x</p>
+    </div>
+</div>
+<script language="JavaScript" type="text/javascript" src="js/jquery-2.2.3.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/bootstrap.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

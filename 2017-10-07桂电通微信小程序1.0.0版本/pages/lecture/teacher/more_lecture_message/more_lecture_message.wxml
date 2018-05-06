@@ -1,0 +1,15 @@
+<!--pages/lecture/teacher/more_lecture_message/more_lecture_message.wxml-->
+<view class='top'></view>
+<view class='center'>
+  <view class='lecture_name'>{{listData.lecture_name}}</view>
+  <view class='center_box'>
+    <view class='lecture'>主讲人：{{listData.lecture_man}}</view>
+    <view class='lecture_introduction'>
+      <text>介绍：</text>
+      <scroll-view scroll-y="true">{{listData.lecture_introduction}}</scroll-view>
+    </view>
+    <view class='lecture'>时间：{{listData.lecture_time}}</view>
+    <view class='lecture'>地点：{{listData.lecture_address}}</view>
+    <button hidden='{{request_key}}' bindtap='lecture_modify'>修改</button>
+  </view>
+</view>

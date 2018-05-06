@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.clear{
+    clear: both;
+}
+/*主体*/
+.center{
+    width: 1920px;
+    background: #DDECEF;
+}
+.center .top-head{
+    width: 1920px;
+    height: 1080px;
+    background: url('../images/bj-01.jpg');
+    background-position: center center;
+    background-size: cover;
+}
+/*导航条*/
+.center .top-head .navigation{
+    width: 1920px;
+    height: 100px;
+    position: fixed;
+    background-color: rgba(0,0,0,0.4);
+}
+.center .top-head .navigation .logo{
+    width: 200px;
+    height: 50px;
+    margin: 25px 272px 25px 156px;
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    font-family:  Calibri;
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.center .top-head .navigation li{
+    position: relative;
+    width: 100px;
+    height: 50px;
+    margin: 25px 30px 25px 30px;
+    float: left;
+    list-style: none;
+    line-height: 50px;
+    font-size: 18px;
+    font-weight: 600;
+}
+.center .top-head .navigation li .menu{
+    position: absolute;
+    top: 50px;
+    left: -25px;
+    width: 150px;
+    height: 200px;
+    background-color: rgba(0,0,0,0.4);
+}
+.center .top-head .navigation li>a{
+    display: block;
+    text-align: center;
+    color: #cfcfcf;
+    text-decoration: none;
+}
+.center .top-head .navigation nav{
+    width: 304px ;
+    height: 100px;
+    margin-left: 200px;
+    float: left;
+}
+.center .top-head .navigation nav img{
+    width: 30px;
+    height: 38px;
+    margin: 31px 20px 31px 20px;
+}
+.center .top-head .tiger{
+    width: 1320px;
+    height: 680px;
+    margin: 0px 100px 0px 100px;
+    padding: 200px;
+}
+.center .top-head .tiger p{
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    font-family: 楷体  Calibri;
+    color:rgb(166, 254, 161);
+}
+.hidden{
+    display: none;
+}
+    /* 内容部分 */
+.center .main .auto{
+    width: 1220px;
+    margin: auto;
+}
+.center .main .auto h1{
+    width: 500px;
+    height: 70px;
+    margin:60px auto 0;
+    font-family: Calibri;
+    font-size: 48px;
+    text-align: center;
+    line-height: 70px;
+}
+.center .main .auto hr{
+    width: 200px;
+    height: 2px;
+    border: none;
+    margin: auto;
+    background:#000000 ;
+}
+.center .main .auto p{
+    width: 500px;
+    height: 40px;
+    margin: auto;
+    text-align: center;
+    line-height: 40px;
+    font-family: 黑体;
+}
+.center .main .auto .more a{
+    display: block;
+    width: 100px;
+    height: 25px;
+    margin-left: 1100px;
+    text-align: center;
+    text-decoration: none;
+    font-family: Calibri;
+    color: #0f0f0f;
+}
+.center .main .auto  li{
+    width: 370px;
+    height: 450px;
+    margin: 15px;
+    list-style:none;
+    float: left;
+    background: #ffffff;
+    border: #ffffff 1px solid;
+    border-radius: 20px;
+    box-shadow: 5px 5px 21px #000000;
+}
+.center .main .auto  li img{
+    border-radius: 20px 20px 0 0;
+}
+.center .main .auto  li h3{
+    width: 370px;
+    height: 15px;
+    text-align: center;
+    margin: 30px auto 30px;
+}
+.center .main .auto  li hr{
+    width: 370px;
+    height: 1px;
+    border: none;
+    margin: auto;
+    background:#000000;
+}
+.center .main .auto  li p{
+    width: 370px;
+    height: 156px;
+    margin: 20px auto 0px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 30px;
+    font-family: 宋体;
+    font-weight: 100;
+}
+.center .main .auto ul{
+    overflow: hidden;
+}
+/*页脚*/
+.foot{
+    background:#DDECEF;
+    width: 1920px;
+    padding-top: 100px;
+}
+.foot .main {
+    position: relative;
+    width: 1820px;
+    height:140px;
+    margin: 100px  auto 0px;
+    padding: 30px 50px 30px 50px;
+    background: #36363A;
+}
+.foot .main .logo{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 200px;
+    height: 50px;
+    margin: 0 150px 25px 0;
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    font-family:  Calibri;
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.foot .main p{
+    width:800px;
+    height: 20px;
+    margin: auto;
+    line-height: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 8px;
+}
+.foot .main hr{
+    width: 1200px;
+    height: 2px;
+    margin: auto;
+    border: none;
+    background: #ffffff;
+}

@@ -1,0 +1,54 @@
+/* pages/curriculum/teacher/more_curriculumMessage/more_curriculumMessage.wxss */
+
+.top {
+  width: 100%;
+  height: 70rpx;
+  background: linear-gradient(90deg, #4e8efc, #38b9fd);
+}
+
+.center {
+  width: 550rpx;
+  margin: 300rpx 100rpx 0 100rpx;
+  border: 4rpx solid #38b9fd;
+  padding-top: 75rpx;
+}
+
+.center .lecture_name {
+  width: 580rpx;
+  text-indent: 62rpx;
+  font-size: 58rpx;
+  font-weight: bolder;
+  letter-spacing: 12rpx;
+  font-family: '黑体';
+  margin-bottom: 34rpx;
+  margin-left: 20rpx;
+}
+
+.center .center_box {
+  width: 400rpx;
+  margin: 0 auto;
+  height: 100%;
+  margin-left:50rpx;
+}
+
+.center .center_box .lecture {
+  width: 600rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  font-family: '华文细黑';
+}
+
+.center .center_box button {
+  position: relative;
+  top: -30rpx;
+  left: 200rpx;
+  width: 120rpx;
+  background-color: #00a0e9;
+  color: #fff;
+  font-size: 36rpx;
+  padding-left: 0;
+  padding-right: 0;
+  line-height: 1.8;
+}

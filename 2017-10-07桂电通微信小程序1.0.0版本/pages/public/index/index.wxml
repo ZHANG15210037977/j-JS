@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class='topColor'></view>
+<view class="center">
+  <navigator url="../Land_study/Land_study" open-type="navigateTo" class="leave">学生</navigator>
+  <navigator url="../Land_teacher/P_leave" class="P_leave">教师</navigator>
+  <view class="top">桂林电子科技大学桂电通系统</view>
+</view>
+<view class="flot_window" hidden="{{windowHiddenKey}}">
+  <view class="flot_window_box">
+    <view class='statement'>特此声明</view>
+    <view class="flot_window_message">
+      本系统由桂林电子科技大学信息与通信学院新媒体中心研发。注意：请假申请提交后请以QQ或短信等方式在提交申请后7天内联系相关老师批复。（若7天内老师未作出批复,则请假作废,请假记录自动删除）
+    </view>
+    <button bindtap="hiddenMessageWindow">我知道了</button>
+  </view>
+</view>

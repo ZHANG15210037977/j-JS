@@ -1,0 +1,33 @@
+<!--pages/lecture/teacher/index/index.wxml-->
+<import src="../../../public/template/tabBar.wxml" />
+<template is="tabBar" data="{{tabBar: tabBar}}" />
+<scroll-view scroll-y="true" style=" height: {{window_height}}px;" bindscrolltolower="reLond">
+  <view class='top'></view>
+  <view class='center'>
+    <view class='more'>
+      <navigator url='../creat_lecture/creat_lecture' class='and'>+</navigator>
+    </view>
+    <block wx:for="{{listData}}" wx:key="{{index}}">
+      <view class='center_box'>
+        <view bindtap='show_more' data-message="{{listData[index]}}">
+          <view class='lecture_name'>{{item.lecture_name}}</view>
+          <view class='message'>主讲人：{{item.lecture_man}}</view>
+          <view class='message'>时间：{{item.lecture_time}}</view>
+          <view class='message'>地点：{{item.lecture_address}}</view>
+          <view class='message'>签到状态：
+            <text style='{{leave_type_color[index]}}'>{{item.lecture_type}}</text>
+          </view>
+          <button data-message="{{listData[index]}}"  class='showMore' catchtap='showMoreMessage'>更多</button>
+        </view>
+      </view>
+    </block>
+
+    <view class='no_message' hidden='{{no_key}}'>
+      <image mode='center' src='../../../../imges/no.png'></image>
+    </view>
+    
+  </view>
+</scroll-view>
+<loading wx:if='{{loading_key}}'>
+  加载中...
+</loading>

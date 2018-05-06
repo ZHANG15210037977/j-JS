@@ -1,0 +1,36 @@
+<!--pages/curriculum/teacher/change_message/change_message.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="top">修改讲座</view>
+  <view class="row">
+    <text>课名：</text>
+    <input value='{{listData.curriculum_name}}' name="curriculum_name"  type="text" />
+  </view>
+
+  <view class="row">
+    <text>课号：</text>
+    <input value='{{listData.curriculum_num}}' name="curriculum_num" p type="text" />
+  </view>
+
+  <view class="row">
+    <text>地点：</text>
+    <input value='{{listData.curriculum_address}}' name="curriculum_address"  type="text" />
+  </view>
+
+  <view class="row">
+    <text>密匙：</text>
+    <input value='{{listData.curriculum_passWord}}' name="curriculum_passWord"  type="text" />
+  </view>
+  <view class="row">
+    <text>确认：</text>
+    <input  name="curriculum_passWord_again"  type="curriculum_passWord_again" />
+  </view>
+
+
+  <view class="row">
+    <button type="primary" form-type="submit">更改</button>
+    <button type="primary" form-type="reset">重置</button>
+  </view>
+</form>
+<loading wx:if='{{loading_key}}'>
+  修改中...
+</loading>

@@ -1,0 +1,36 @@
+<!--pages/curriculum/teacher/check_message/check_message.wxml-->
+<view class='top'></view>
+<view class='center'>
+  <view bindtap='addCheck' class='more'>
+    <view  class='and'>+</view>
+  </view>
+
+  <view class='center_box'>
+
+
+    <block wx:for="{{listData}}" wx:key="{{index}}">
+      <view class='row clearfix' hidden='{{listData[index].hidenType}}'>
+        <view style='{{listData[index].color}}'  class='text'> 第{{listData[index].message}}次签到</view>
+        <view data-message="{{index}}" bindtap='showMore' class='smore'>详情</view>
+      </view>
+    </block>
+
+
+
+  </view>
+
+
+
+
+
+  <view class='no_message' hidden='{{no_key}}'>
+    <image mode='center' src='../../../../imges/no.png'></image>
+  </view>
+
+  
+</view>
+
+
+<loading wx:if='{{loading_key}}'>
+  加载中...
+</loading>

@@ -1,0 +1,38 @@
+<!--pages/curriculum/teacher/index/index.wxml-->
+<view class='top'></view>
+<view class='center'>
+  <view class='more'>
+    <navigator url='../creat_curriculum/creat_curriculum' class='and'>+</navigator>
+  </view>
+  <view class='box clearfix'>
+
+
+
+    <block wx:for="{{listData}}" wx:key="{{index}}">
+      <view class='message_box'>
+        <view bindtap='check_message' data-message="{{listData[index]}}">
+          <view class='tap'>
+            <view class='title'>{{item.curriculum_name}}</view>
+            <view class='num'>课号:{{item.curriculum_num}}</view>
+          </view>
+          <view class='batton'>
+            <view class='mores' data-message="{{listData[index]}}" catchtap='showMoreMessage'>详情</view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+
+
+  </view>
+  <view class='no_message' hidden='{{no_key}}'>
+    <image mode='center' src='../../../../imges/no.png'></image>
+  </view>
+</view>
+
+
+<loading wx:if='{{loading_key}}'>
+  加载中...
+</loading>
+<import src="../../../public/template/tabBar.wxml" />
+<template is="tabBar" data="{{tabBar: tabBar}}" />

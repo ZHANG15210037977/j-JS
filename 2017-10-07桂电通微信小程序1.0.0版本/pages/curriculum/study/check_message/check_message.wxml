@@ -1,0 +1,37 @@
+<!--pages/curriculum/study/check_message/check_message.wxml-->
+<view class='top'></view>
+<view class='center'>
+  <view  class='more'>
+    <button bindtap='refresh_Check' class='and'>刷新</button> 
+  </view>
+
+  <view class='center_box'>
+
+
+    <block wx:for="{{listData}}" wx:key="{{index}}">
+      <view class='row clearfix' hidden='{{listData[index].hidenType}}'>
+        <view style='{{listData[index].color}}'  class='text'> 第{{listData[index].message}}次签到</view>
+        <view hidden='{{listData[index].checkType}}' data-message="{{index}}" bindtap='check_function' class='ok'>签到</view>
+        <view hidden='{{!listData[index].checkType}}'  class='ok no'>已签</view>
+      </view>
+    </block>
+
+
+
+  </view>
+
+
+
+
+
+  <view class='no_message' hidden='{{no_key}}'>
+    <image mode='center' src='../../../../imges/no.png'></image>
+  </view>
+
+  
+</view>
+
+
+<loading wx:if='{{loading_key}}'>
+  加载中...
+</loading>

@@ -1,0 +1,90 @@
+/**index.wxss**/
+page {
+  height: 1282rpx;
+}
+.topColor{
+  width: 750rpx;
+  height: 70rpx;
+  background: linear-gradient(180deg,#4e8efc,#38b9fd);
+}
+.top {
+  height: 32rpx;
+  font-size: 24rpx;
+  line-height: 32rpx;
+  background: #F4F4F4;
+  color: black;
+  margin: 240rpx auto 0;
+}
+
+.center {
+  width: 550rpx;
+  height: 750rpx;
+  margin: 230rpx auto 200rpx;
+  border-radius: 8rpx;
+}
+
+.center navigator{
+  width: 270rpx;
+  height: 160rpx;
+  margin: 0 auto 120rpx;
+  border-radius: 24rpx;
+  box-shadow: 6rpx 4rpx 30rpx #967979;
+  text-align: center;
+  line-height: 160rpx;
+  font-size: 64rpx;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2rpx 6rpx 10rpx black;
+  }
+.center .leave {
+  background-color: #11B7F5;
+}
+
+.center .P_leave {
+  background-color: #83DCA4;
+}
+
+.flot_window {
+  top: -1249rpx;
+  position: relative;
+  padding-top: 100rpx;
+  width: 750rpx;
+  height: 1249rpx;
+  background: #929292;
+}
+
+.flot_window .flot_window_box .statement{
+  width: 300rpx;
+  height: 48rpx;
+  margin: 0 auto 50rpx;
+  line-height: 48rpx;
+  color: red;
+  font-size: 48rpx;
+  font-weight: bold;
+  text-align: center;
+}
+
+.flot_window .flot_window_box {
+  width: 530rpx;
+  height: 600rpx;
+  margin: 100rpx auto 0;
+  padding: 80rpx 40rpx 100rpx 40rpx;
+  background-color: #91B4D9;
+  border-radius: 16rpx;
+  text-align: left;
+  line-height: 48rpx;
+  letter-spacing: 8rpx;
+  font-weight: bold;
+  font-size: 24rpx;
+  text-indent: 48rpx;
+  color: #fff;
+}
+.flot_window .flot_window_box .flot_window_message
+{
+  margin: 0 auto 0;
+  width: 550rpx;
+}
+.flot_window .flot_window_box button {
+  margin-top: 50rpx;
+  background-color: #f9ede9;
+}

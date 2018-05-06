@@ -1,0 +1,15 @@
+<!--P_leave.wxml-->
+<view class='top'></view>
+<view class='center'>
+  <view class='center-box'>
+    <image src='../../../imges/logo.jpg'></image>
+    <form bindsubmit='formSubmit'>
+    <view>账号：</view>
+    <input type="text" name="user_phone" placeholder="您注册账号时填写的手机号" ></input>
+    <view>密码：</view>
+    <input type="password" name="user_password" placeholder="请您输入密码" ></input>
+    <navigator url="../register_teacher/register">注册</navigator>
+    <button form-type='submit'>登录</button>
+    </form>
+  </view>
+</view>

@@ -1,0 +1,113 @@
+<!--pages/home_page/study/index/index.wxml-->
+<view class='topColor'></view>
+<view class='center'>
+  <view class='user_message'>
+    <image class='head_img' mode='aspectFill' src='{{head_img_src}}' bindtap='chose_imges'></image>
+    <text>{{user_name}}</text>
+    <image class='change_img' mode='scaleToFill' src='../../../../imges/study_user_request.png' bindtap='change_user'></image>
+  </view>
+  <view class='btn_list'>
+    <image mode='scaleToFill' src='../../../../imges/study_jz.png' bindtap='chose_lecture'></image>
+    <image mode='scaleToFill' src='../../../../imges/study_kc.png' bindtap='chose_curriculum'></image>
+  </view>
+  <progress stroke-width='2' percent='50' activeColor='{{activeColor}}' backgroundColor="{{backgroundColor}}"></progress>
+  <view class='center_box clearfloat' style='left:{{center_box_left}}rpx;'>
+
+
+    <view class='lecture'>
+      <block wx:for="{{listData_lecture}}" wx:key="{{index}}">
+        <view class='lecture_box'>
+          <view class='lecture_name'>{{item.lecture_name}}</view>
+          <view class='message'>主讲人：{{item.lecture_man}}</view>
+          <view class='message'>时间：{{item.lecture_time}}</view>
+          <view class='message'>地点：{{item.lecture_address}}</view>
+          <button data-message="{{listData_lecture[index]}}" catchtap='study_ok'>签到</button>
+        </view>
+      </block>
+
+      <view class='no_message' hidden='{{no_key_lecture}}'>
+        <image mode='center' src='../../../../imges/no.png'></image>
+      </view>
+
+    </view>
+
+
+
+    <view class='curriculum'>
+      <view class='tb_title'>
+        <view class='tb_1'>
+          课程
+        </view>
+        <view class='tb_2'>
+          老师
+        </view>
+        <view class='tb_3'>
+          课号
+        </view>
+        <view class='tb_4'>
+          地点
+        </view>
+        <view class='tb_5'>
+          更多
+        </view>
+      </view>
+
+
+      <block wx:for="{{listData_curriculum}}" wx:key="{{index}}">
+
+
+        <view bindtap='check_message' data-message="{{listData_curriculum[index]}}" style="background-color:#e6f3f9" class="tb_content" wx:if="{{index % 2 == 0}}">
+          <view class='tb_1 th tb_1_title'>
+            {{item.curriculum_name}}
+          </view>
+          <view class='tb_2 th'>
+            {{item.teacher_name}}
+          </view>
+          <view class='tb_3 th'>
+            {{item.curriculum_num}}
+          </view>
+          <view class='tb_4 th'>
+            {{item.curriculum_address}}
+          </view>
+          <view style='color:#6C9EF9' class='tb_5 th'>
+            更多
+          </view>
+        </view>
+
+
+        <view bindtap='check_message' data-message="{{listData_curriculum[index]}}" class="tb_content" wx:else>
+          <view class='tb_1 th tb_1_title'>
+            {{item.curriculum_name}}
+          </view>
+          <view class='tb_2 th'>
+            {{item.teacher_name}}
+          </view>
+          <view class='tb_3 th'>
+            {{item.curriculum_num}}
+          </view>
+          <view class='tb_4 th'>
+            {{item.curriculum_address}}
+          </view>
+          <view style='color:#6C9EF9' class='tb_5 th'>
+            更多
+          </view>
+        </view>
+
+      </block>
+
+      <view class='no_message' hidden='{{no_key_curriculum}}'>
+        <image mode='center' src='../../../../imges/no.png'></image>
+      </view>
+
+    </view>
+
+
+
+  </view>
+
+</view>
+<import src="../../../public/template/tabBar.wxml" />
+<template is="tabBar" data="{{tabBar: tabBar}}" />
+<loading wx:if='{{loading_key}}'>
+  加载中...
+</loading>

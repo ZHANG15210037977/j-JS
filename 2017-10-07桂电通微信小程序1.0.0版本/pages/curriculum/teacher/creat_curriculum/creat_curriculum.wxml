@@ -1,0 +1,37 @@
+<!--pages/curriculum/teacher/creat_curriculum/creat_curriculum.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="top">新增课程</view>
+  <view class="row">
+    <text>课程名：</text>
+    <input name="curriculum_name"  type="text" />
+  </view>
+
+  <view class="row">
+    <text>课号：</text>
+    <input name="curriculum_num" p type="text" />
+  </view>
+
+
+  <view class="row">
+    <text>地点：</text>
+    <input name="curriculum_address"  type="text" />
+  </view>
+
+  <view class="row">
+    <text>密匙：</text>
+    <input name="curriculum_passWord"  type="password" />
+  </view>
+
+  <view class="row">
+    <text>确认：</text>
+    <input name="curriculum_passWord_again"  type="password" />
+  </view>
+
+  <view class="row">
+    <button type="primary" form-type="submit">增加</button>
+    <button type="primary" form-type="reset">重置</button>
+  </view>
+</form>
+<loading wx:if='{{loading_key}}'>
+  加载中...
+</loading>

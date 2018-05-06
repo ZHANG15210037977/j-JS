@@ -1,0 +1,76 @@
+<!--pages/wx_leave/study/index.wxml-->
+<scroll-view scroll-y="true" style=" height: {{window_height}}px;" bindscrolltolower="reLond">
+  <view class='box'>
+    <view class='top'></view>
+    <view class='center'>
+      <view class='more'>
+        <navigator url='../message_submit/leave' class='and'>+</navigator>
+      </view>
+      <view class='center_box'>
+        <view class='tb_title'>
+          <view class='tb_1'>
+            序号
+          </view>
+          <view class='tb_2'>
+            学号
+          </view>
+          <view class='tb_3'>
+            老师
+          </view>
+          <view class='tb_4'>
+            状态
+          </view>
+          <view class='tb_5'>
+            更多
+          </view>
+        </view>
+        <block wx:for="{{listData}}" wx:key="{{index}}">
+          <view style="background-color:#e6f3f9" class="tb_content" wx:if="{{index % 2 == 0}}">
+            <view class='tb_1 th'>
+              {{index + 1}}
+            </view>
+            <view class='tb_2 th'>
+              {{item.study_no}}
+            </view>
+            <view class='tb_3 th'>
+              {{item.teacher_name}}
+            </view>
+            <view class='tb_4 th' style="{{leave_type_color[index]}}">
+              {{item.leave_type}}
+            </view>
+            <view style='color:#6C9EF9' class='tb_5 th' data-message="{{listData[index]}}" bindtap='showMoreMessage'>
+              更多
+            </view>
+          </view>
+          <view class="tb_content" wx:else>
+            <view class='tb_1 th'>
+              {{index + 1}}
+            </view>
+            <view class='tb_2 th'>
+              {{item.study_no}}
+            </view>
+            <view class='tb_3 th'>
+              {{item.teacher_name}}
+            </view>
+            <view class='tb_4 th' style="{{leave_type_color[index]}}">
+              {{item.leave_type}}
+            </view>
+            <view style='color:#6C9EF9' class='tb_5 th' data-message="{{listData[index]}}" bindtap='showMoreMessage'>
+              更多
+            </view>
+          </view>
+        </block>
+
+        <view class='no_message' hidden='{{no_key}}'>
+          <image mode='center' src='../../../imges/no.png'></image>
+        </view>
+
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<import src="../../public/template/tabBar.wxml" />
+<template is="tabBar" data="{{tabBar: tabBar}}" />
+<loading wx:if='{{loading_key}}'>
+  请稍后...
+</loading>

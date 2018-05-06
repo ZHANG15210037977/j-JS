@@ -1,0 +1,129 @@
+/* pages/curriculum/teacher/check_up/check_up.wxss */
+.top {
+  width: 100%;
+  height: 70rpx;
+  background: linear-gradient(90deg, #4e8efc, #38b9fd);
+}
+
+.box {
+  width: 750rpx;
+  height: 100%;
+  margin-bottom: 150rpx;
+}
+
+.center {
+  width: 750rpx;
+  background-color: #d6d5d6;
+}
+.center .switch{
+  width: 510rpx;
+  height: 50rpx;
+  padding: 30rpx 120rpx;
+  background: #ffffff;
+  margin-bottom: 6rpx;
+}
+.center .switch switch{
+  float: right;
+}
+.center .more {
+  width: 750rpx;
+  height: 74rpx;
+  padding: 23rpx 0 23rpx;
+  background-color: #fff;
+}
+
+.center .more form {
+  width: 652rpx;
+  height: 66rpx;
+  display: block;
+  border: 4rpx solid #a4a4a3;
+  border-radius: 8rpx;
+  margin: 0 45rpx;
+}
+
+.center .more form input {
+  width: 580rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  font-size: 36rpx;
+  text-align: center;
+  float: left;
+}
+
+.center .more form button {
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 0;
+  width: 66rpx;
+  height: 66rpx;
+  border: none;
+  float: left;
+}
+
+.center .more form button image {
+  width: 52rpx;
+  height: 52rpx;
+  margin: 8rpx 20rpx 8rpx 0;
+}
+
+.center .center_box {
+  margin-top: 4rpx;
+  width: 750rpx;
+  height: 100%;
+  background-color: #f4f4f4;
+}
+
+.center .center_box .tb_title {
+  width: 670rpx;
+  height: 40rpx;
+  padding: 35rpx 40rpx;
+  line-height: 40rpx;
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+.center .center_box .tb_1 {
+  width: 100rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  float: left;
+}
+
+.center .center_box .tb_2 {
+  width: 250rpx;
+  height: 40rpx;
+  float: left;
+}
+
+.center .center_box .tb_3 {
+  width: 145rpx;
+  height: 40rpx;
+  float: left;
+}
+
+.center .center_box .tb_4 {
+  width: 175rpx;
+  height: 40rpx;
+  float: left;
+}
+
+
+.center .center_box .th {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.center .center_box .tb_content {
+  width: 670rpx;
+  height: 80rpx;
+  padding: 0 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+}
+
+.center .no_message image {
+  background-color: #f4f4f4;
+  width: 750rpx;
+  height: 780rpx;
+}

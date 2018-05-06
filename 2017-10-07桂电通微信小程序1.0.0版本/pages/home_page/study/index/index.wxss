@@ -1,0 +1,173 @@
+/* pages/home_page/study/index/index.wxss */
+
+.topColor {
+  width: 750rpx;
+  height: 70rpx;
+  background: linear-gradient(180deg, #4e8efc, #38b9fd);
+}
+
+.center {
+  width: 750rpx;
+  background-color: #cbcbcb;
+  overflow: hidden;
+}
+
+.center .user_message {
+  width: 600rpx;
+  height: 120rpx;
+  padding: 50rpx 100rpx 50rpx 50rpx;
+  background-color: #fff;
+}
+
+.center .user_message .head_img {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+}
+
+.center .user_message text {
+  margin-left: 35rpx;
+  position: relative;
+  bottom: 20rpx;
+  color: #ababab;
+  font-size: 36rpx;
+}
+
+.center .user_message .change_img {
+  width: 40rpx;
+  height: 36rpx;
+  float: right;
+  margin-top: 48rpx;
+}
+
+.center .btn_list {
+  width: 750rpx;
+  height: 160rpx;
+  margin-top: 3rpx;
+  background-color: #fff;
+}
+
+.center .btn_list image {
+  width: 114rpx;
+  height: 106rpx;
+  margin-top: 27rpx;
+  margin-bottom: 27rpx;
+  margin-left: 174rpx;
+  float: left;
+}
+
+.center .center_box {
+  width: 1500rpx;
+  margin-top: 3rpx;
+  padding-bottom: 90rpx;
+  position: relative;
+  background-color: #fff;
+}
+
+.center .center_box .lecture {
+  width: 750rpx;
+  float: left;
+}
+
+.center .center_box .lecture .lecture_box {
+  width: 650rpx;
+  height: 305rpx;
+  padding: 50rpx 50rpx 25rpx;
+  border-bottom: 6px solid #cbcbcb;
+}
+
+.center .center_box .lecture .lecture_box .lecture_name {
+  text-indent: 62rpx;
+  font-size: 42rpx;
+  font-weight: bolder;
+  letter-spacing: 12rpx;
+  font-family: '黑体';
+  margin-bottom: 22rpx;
+}
+
+.center .center_box .lecture .lecture_box .message {
+  line-height: 60rpx;
+  font-size: 28rpx;
+  text-indent: 60rpx;
+}
+
+.center .center_box .lecture .lecture_box button {
+  position: relative;
+  bottom: 63rpx;
+  left: 265rpx;
+  width: 120rpx;
+  height: 55rpx;
+  font-size: 32rpx;
+  line-height: 55rpx;
+  color: #fff;
+  background-color: #11b7f5;
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: null;
+}
+
+.center .center_box .curriculum {
+  width: 750rpx;
+  float: left;
+}
+
+.center .center_box .curriculum .tb_title {
+  width: 670rpx;
+  height: 40rpx;
+  padding: 35rpx 40rpx;
+  line-height: 40rpx;
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+.center .center_box .curriculum .th {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.center .center_box .curriculum .tb_1 {
+  width: 160rpx;
+  float: left;
+  line-height: 28rpx;
+}
+
+.center .center_box .curriculum .tb_1_title {
+  padding-top: 30rpx;
+  height: 70rpx;
+}
+
+.center .center_box .curriculum .tb_2 {
+  width: 130rpx;
+  float: left;
+}
+
+.center .center_box .curriculum .tb_3 {
+  width: 120rpx;
+  float: left;
+}
+
+.center .center_box .curriculum .tb_4 {
+  width: 150rpx;
+  float: left;
+}
+
+.center .center_box .curriculum .tb_5 {
+  width: 110rpx;
+  float: left;
+}
+
+.center .center_box .curriculum .tb_content {
+  width: 670rpx;
+  height: 100rpx;
+  padding: 0 40rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.center .no_message image {
+  background-color: #f4f4f4;
+  width: 750rpx;
+  height: 980rpx;
+}

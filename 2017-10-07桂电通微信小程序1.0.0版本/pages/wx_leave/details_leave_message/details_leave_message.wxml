@@ -1,0 +1,33 @@
+<!--pages/wx_leave/details_leave_message/details_leave_message.wxml-->
+<view class='box'>
+  <view class='part_box box_one'>
+    <view>学号：{{study_no}}</view>
+    <view class='spacing'>姓名：{{study_name}}</view>
+  </view>
+
+  <view class='part_box box_two'>
+    <view>请假时间：{{leave_start_time}}</view>
+    <view class='spacing'>收假时间：{{leave_end_time}}</view>
+    <view class='spacing'>请假时长：{{leave_time}}</view>
+  </view>
+
+  <view class='part_box box_three'>
+    <view class='title'>请假原因</view>
+    <scroll-view scroll-y="true" style=" height: 217rpx;">{{leave_reason}}</scroll-view>
+  </view>
+
+  <view class='part_box box_four'>
+    <view class='title'>请假凭证</view>
+    <image src="{{leave_prove}}" mode="aspectFit"></image>
+  </view>
+
+  <view hidden='{{button_key}}'>
+    <form>
+      <button disabled="{{request_key}}" bindtap="request" data-key="1" class='true'>准假</button>
+      <button disabled="{{request_key}}" bindtap="request" class='false'>不准</button>
+    </form>
+  </view>
+</view>
+<loading wx:if='{{loading_key}}'>
+  加载中...
+</loading>
