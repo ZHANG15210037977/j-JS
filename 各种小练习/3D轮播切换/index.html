@@ -9,26 +9,26 @@
          <div class="slideBox_one">
              <div class="slideBox_center">
                  <ul>
-                     <li><img src="images/01.jpg" width="751" height="300" alt="轮播图"></li>
-                     <li><img src="images/01.jpg" width="751" height="300" alt="轮播图"></li>
-                     <li><img src="images/01.jpg" width="751" height="300" alt="轮播图"></li>
-                     <li><img src="images/01.jpg" width="751" height="300" alt="轮播图"></li>
-                     <li><img src="images/01.jpg" width="751" height="300" alt="轮播图"></li>
-                     <li><img src="images/01.jpg" width="751" height="300" alt="轮播图"></li>
+                     <li class="lt1"><a href="#"> <img src="images/01.jpg" width="751" height="300" alt="轮播图"> </a></li>
+                     <li class="lt2"><a href="#"> <img src="images/02.jpg" width="751" height="300" alt="轮播图"> </a></li>
+                     <li class="lt3"><a href="#"> <img src="images/03.jpg" width="751" height="300" alt="轮播图"> </a></li>
+                     <li class="lt4"><a href="#"> <img src="images/04.jpg" width="751" height="300" alt="轮播图"> </a></li>
+                     <li class="lt5"><a href="#"> <img src="images/05.jpg" width="751" height="300" alt="轮播图"> </a></li>
+                     <li class="lt6"><a href="#"> <img src="images/06.jpg" width="751" height="300" alt="轮播图"> </a></li>
+                     <li class="lt7"><a href="#"> <img src="images/07.jpg" width="751" height="300" alt="轮播图"> </a></li>
                  </ul>
              </div>
-             <div class="silideBtn_list">
-                 <ul>
-                     <li></li>
-                     <li></li>
-                     <li></li>
-                     <li></li>
-                     <li></li>
-                     <li></li>
-                 </ul>
+             <div onclick="slideBox_one.chose(event)" class="silideBtn_list">
+                <div data-index = 0 ><div></div></div>
+                <div data-index = 1 ><div></div></div>
+                <div data-index = 2 ><div></div></div>
+                <div data-index = 3 ><div class="blue"></div></div>
+                <div data-index = 4 ><div></div></div>
+                <div data-index = 5 ><div></div></div>
+                <div data-index = 6 ><div></div></div>
              </div>
-             <div class="btn prev"></div>
-             <div class="btn next"></div>
+             <a onclick="slideBox_one.prev()" href="javaScript:" class="btn prev"><</a>
+             <a onclick="slideBox_one.next()" href="javaScript:" class="btn next">></a>
          </div>
      </body>
      <script type="text/javaScript" src="js/index.js"></script>
