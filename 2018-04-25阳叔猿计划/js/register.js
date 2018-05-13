@@ -1,6 +1,8 @@
 let register = (function () {
+    
     let register_code = null;
     let z_index = 2000;
+    //短信验证码计时
     let max = 60;
 
 
@@ -49,50 +51,31 @@ let register = (function () {
         bg_color: '#13CE66'
     }]
 
-    function addNode(messageList) {//表单消息提示处理函数，参数为提示信息对象
-
-        document.getElementsByTagName('body')[0].insertAdjacentHTML("beforeend",//增加提示Html Node
-            `<div class="prompt-message clear-float prompt-message-hidden" style = "z-index:${z_index++}">
-                <div class="prompt" style = "background-color:${messageList.bg_color}">${messageList.title}</div>
-                <div class="message">${messageList.message}</div>
-            </div>`)
-
-        let nowNode = document.getElementsByTagName('body')[0].lastChild;//获取当前Node
-        setTimeout(() => {
-            nowNode.classList = "prompt-message clear-float";//逐渐出现
-        }, 100)
-        setTimeout(() => {
-            nowNode.classList += " prompt-message-hidden";//逐渐隐藏
-            setTimeout(() => {
-                nowNode.parentNode.removeChild(nowNode);//去除当前Node
-            }, 800)
-        }, 3000)
-
-    }
+    
 
     function check_data(inputeListe) {//表单数据监测函数，参数为input标签的 NodeList对象
 
         //手机号判断
         if ((inputeListe[0].value + '').length < 11 || inputeListe[0].value === '') {
-            addNode(messageList[0]);
+            public.addNode(messageList[0],z_index++);
             return false;
         }
 
         //密码判断
         if (inputeListe[1].value.length < 6 || inputeListe[1].value === '') {
-            addNode(messageList[1]);
+            public.addNode(messageList[1],z_index++);
             return false;
         }
 
         //判断是否确认密码
         if (inputeListe[2].value === '') {
-            addNode(messageList[2]);
+            public.addNode(messageList[2],z_index++);
             return false;
         }
 
         //判断密码输入是否一致判断
         if (inputeListe[1].value !== inputeListe[2].value && inputeListe[1].value !== '' && inputeListe[2].value !== '') {
-            addNode(messageList[4]);
+            public.addNode(messageList[4],z_index++);
             return false;
         }
 
@@ -137,7 +120,7 @@ let register = (function () {
                         let res = JSON.parse(xhr.responseText);
                         if (res.status == 1) {
                             messageList[3].message += res.data.code;
-                            addNode(messageList[3]);
+                            public.addNode(messageList[3],z_index++);
                             register_code = res.data.code;
                             //这部分逻辑不完整  因为后台接口不全 
                             event.target.onclick = null;
@@ -147,12 +130,12 @@ let register = (function () {
 
                         } else {
                             messageList[5].message = res.info;
-                            addNode(messageList[5]);
+                            public.addNode(messageList[5],z_index++);
                             register_code = '123456';//后台默认返回‘123456’
                         }
                     } else {
                         messageList[5].message = '请求出错，返回状态码为:' + xhr.status
-                        addNode(messageList[5]);
+                        public.addNode(messageList[5],z_index++);
                     }
 
                 }
@@ -175,7 +158,7 @@ let register = (function () {
 
     }
 
-    function register_user() {
+    function register_user(event) {
 
         let inputeListe = document.getElementsByTagName('input');
 
@@ -183,12 +166,12 @@ let register = (function () {
         let key2 = true;
 
         if (inputeListe[3].value == '') {
-            addNode(messageList[6]);
+            public.addNode(messageList[6],z_index++);
             key2 = false;
         }
 
         if (inputeListe[3].value != '' && inputeListe[3].value != register_code) {
-            addNode(messageList[7]);
+            public.addNode(messageList[7],z_index++);
             key2 = false;
         }
 
@@ -199,17 +182,17 @@ let register = (function () {
                     let res = JSON.parse(xhr.responseText);
                     if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
                         if (res.status == 1) {
-                            addNode(messageList[8]);
+                            public.addNode(messageList[8],z_index);
                             setTimeout(() => {
-                                window.location.href = "file:///E:/project/src/index.html";
+                                window.location.href = "file:///E:/project/src/login.html";
                             }, 1000)
                         } else {
                             messageList[5].message = res.info;
-                            addNode(messageList[5]);
+                            public.addNode(messageList[5],z_index++);
                         }
                     } else {
                         messageList[5].message = '请求出错，返回状态码为:' + xhr.status
-                        addNode(messageList[5]);
+                        public.addNode(messageList[5],z_index++);
                     }
 
                 }
