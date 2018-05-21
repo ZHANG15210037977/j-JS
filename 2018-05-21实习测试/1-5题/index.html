@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .container {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .left {
+           flex: 0 0 auto;
+        }
+
+        .right {
+            flex: 1 1 auto;
+            background-color: #E9E895;
+        }
+    </style>
+    <title>1-5题</title>
+</head>
+
+<body>
+
+    <ul id="foo" class="ke">
+        <li>
+            <a href="http://baidu.com1">a</a>
+        </li>
+        <li>
+            <a href="http://baidu.com2">b</a>
+        </li>
+        <li>
+            <a href="http://baidu.com3">c</a>
+        </li>
+        <li>
+            <a href="http://baidu.com4">e</a>
+        </li>
+    </ul>
+    
+    <br><br>
+
+
+    <div class="container">
+        <img class="left" src="https://static.daojia.com/assets/project/pc/resource/global/logo_dj.png">
+        <p class="right">这是一段右边的文字这是一段右边的文字这是一段右边的文字这是一段右边的文字这是一段右边的文字</p>
+    </div>
+
+
+</body>
+
+<script>
+    let public = (function () {
+        //第二题
+        function foo_two(id) {
+            let nodeList = document.getElementById(id).children;//获取li节点列表
+
+            for (let i = 0; i < nodeList.length; i++) {//循环添加处理事件
+                nodeList[i].children[0].onclick = function (event) {
+                    alert(this.href);//输出href属性
+                    event.preventDefault();//用事件对象preventDefault函数终止a标签默认行为
+                }
+            }
+        }
+        foo_two('foo');
+        //第一题，判断变量类型
+        function type_of(data) {
+            let type = typeof data;//基本类型判断
+
+            if (type == 'object') {//引用对象判断
+                if (data === null) {//null判断
+                    type = 'null'
+                } else {
+                    type = Object.getPrototypeOf(data).constructor.name;//获取对象类构造函数名
+                }
+            }
+
+            return type;
+        }
+
+
+        return {
+            type_of,
+        }
+    })()
+
+
+</script>
+
+</html>
