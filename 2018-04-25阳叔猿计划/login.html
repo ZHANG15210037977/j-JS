@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="css/public.css">
     <link rel="stylesheet" href="css/login.css">
     <title>登猿入库</title>
@@ -48,24 +49,24 @@
 
     <!--主体-->
     <article id="content">
-            <div class="register-box">
-                <div class="title">
-                    欢迎来到源计划
-                </div> 
-
-                <form>
-                    <input type="number" name="mobile" placeholder="请输入手机号">
-                    <input type="password" name="user_password" placeholder="请输入密码">
-                    <div class="form_row">
-                        <input type="checkbox" value = "true" id="autoLogin">
-                        <label for="autoLogin">下次自动登陆</label>
-                        <a href="register.html">立即注册</a>
-                    </div>
-                    <div class="button" onclick="login.login_up(event)">登陆</div>
-                </form>
-
+        <div class="register-box">
+            <div class="title">
+                欢迎来到源计划
             </div>
-        </article>
+
+            <form>
+                <input type="number" name="mobile" placeholder="请输入手机号">
+                <input type="password" name="user_password" placeholder="请输入密码">
+                <div class="form_row">
+                    <input type="checkbox" value="true" id="autoLogin">
+                    <label for="autoLogin">下次自动登陆</label>
+                    <a href="register.html">立即注册</a>
+                </div>
+                <div class="button" onclick="login.login_up(event)">登陆</div>
+            </form>
+
+        </div>
+    </article>
 
 </body>
 

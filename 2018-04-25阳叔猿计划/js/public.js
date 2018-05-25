@@ -1,4 +1,18 @@
 let public = (function () {
+    //判断数据类型
+    function type_of(data){
+        let type = typeof data;
+
+        if(type == 'object'){//引用对象判断
+            if(data === null){//null判断
+                type = 'null'
+            }else{
+                type = Object.getPrototypeOf(data).constructor.name;//获取对象类构造函数名
+            }
+        }
+
+        return type;
+    }
 
     function addNode(messageList, z_index) {//表单消息提示处理函数，参数为提示信息对象
 
@@ -21,13 +35,13 @@ let public = (function () {
 
     }
 
-    function addUrl(url, name, value) {
+    function addUrl(url, name, value) {//get模式 信息写入url函数
         url += (url.indexOf("?") == -1 ? "?" : "&");
         uel += encodeURIComponent(name) + '=' + encodeURIComponent(value);
         return url;
     }
 
-    function request(par) {
+    function request(par) {//仿wx.request，封装ajax传输函数，传入par为一个对象
 
         let xhr = new XMLHttpRequest();//新建传输对象
 
@@ -110,6 +124,7 @@ let public = (function () {
 
     return {
         addNode,
-        request
+        request,
+        type_of
     }
 })()
