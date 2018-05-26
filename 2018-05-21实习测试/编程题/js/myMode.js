@@ -1,4 +1,4 @@
-let public = (function () {
+let myMode = (function () {
     //判断数据类型
     function type_of(data){
         let type = typeof data;
@@ -148,3 +148,6 @@ let public = (function () {
         arrIndexOfde
     }
 })()
+
+
+export default myMode;

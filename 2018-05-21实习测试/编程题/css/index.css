@@ -66,7 +66,7 @@
 }
 
 
-#content form.getData .next{
+#content form.getData .clear{
     display: none;
 }
 #content #show_process{
@@ -76,11 +76,8 @@
 
 #content #show_process .row{
     width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 1s;
+    height: 95px;
+
 }
 
 #content #show_process .hidden{
@@ -89,15 +86,14 @@
 
 
 #content #show_process .row ul{
-    height: 50px;
-    display: flex;
-    line-height: 50px;
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
+    position: relative;
+    margin: 10px auto 10px;
+    height: 75px;
+    
 }
 
 #content #show_process .row ul li{
+    position: absolute;
     width: 50px;
     height: 50px;
     background-color: #F0495A;
@@ -108,5 +104,5 @@
     list-style: none;
     border-right: 1px solid #FFCEAD;
     border-radius: 4px;
-    transition: order 5s;
+    transition: background-color 1s,left 1.5s;
 }
