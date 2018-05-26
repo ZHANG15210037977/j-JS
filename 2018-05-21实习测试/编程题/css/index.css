@@ -20,14 +20,14 @@
     width: 60%;
     margin: 0 auto;
 }
-#content form.getData .row{
+#content form.getData .rows{
     position: relative;
     width: 100%;
     margin-top: 30px;
     height: 30px;
     line-height: 30px;
 }
-#content form.getData .row .prompt{
+#content form.getData .rows .prompt{
     position: absolute;
     width: 100px;
     height: 30px;
@@ -35,7 +35,7 @@
     font-size: 18px;
     text-align: left;
 }
-#content form.getData .row input{
+#content form.getData .rows input{
     display: block;
     margin-left: 100px;
     width: calc(100% - 100px);
@@ -44,7 +44,7 @@
     text-indent: 8px;
     border: 1px solid #ccc;
 }
-#content form.getData .row select{
+#content form.getData .rows select{
     margin-left: 100px;
     width: 100px;
     height: 30px;
@@ -62,14 +62,31 @@
     border-radius: 14px;
     text-align: center;
     cursor: pointer;
+    transition: all 3s;
+}
+
+
+#content form.getData .next{
+    display: none;
+}
+#content #show_process{
+    display: flex;
+    flex-direction: column;
 }
 
 #content #show_process .row{
     width: 100%;
-    height: 50px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    transition: all 1s;
 }
+
+#content #show_process .hidden{
+    opacity: 0;
+}
+
 
 #content #show_process .row ul{
     height: 50px;
@@ -91,4 +108,5 @@
     list-style: none;
     border-right: 1px solid #FFCEAD;
     border-radius: 4px;
+    transition: order 5s;
 }

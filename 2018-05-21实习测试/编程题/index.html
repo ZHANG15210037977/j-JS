@@ -16,11 +16,11 @@
 
         <form class="getData">
 
-            <div class="row">
+            <div class="rows">
                 <div class="prompt">数据：</div>
                 <input type="text" name="data" placeholder="请输入演示数据，以逗号隔开">
             </div>
-            <div class="row">
+            <div class="rows">
                 <div class="prompt">演示方式：</div>
                 <select name="show_style">
                     <option value="1">选择排序</option>
@@ -31,35 +31,12 @@
                 </select>
             </div>
 
-            <div class="button" onclick="index.start()">Start</div>
+            <div class="button start" onclick="index.start()">Start</div>
+            <div class="button next" onclick="index.next()">next</div>
         </form>
 
         <div id="show_process">
-            <div class="row">
-
-                <ul>第一步：
-                 
-                    <li>75</li>
-                    <li>52841</li>
-                    <li>125</li>
-                    <li>0</li>
-                    <li>1324</li>
-                </ul>
-
-                <ul>
-                    <li>15</li>
-                    <li>12</li>
-               
-                </ul>
-
-                <ul>
-                    <li>15</li>
-                    <li>12</li>
-                    <li>8</li>
-                    <li>11</li>
-                  
-                </ul>
-            </div>
+     
         </div>
 
     </article>

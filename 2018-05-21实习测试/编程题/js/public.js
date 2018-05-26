@@ -17,6 +17,22 @@ let public = (function () {
         return type;
     }
 
+    function arrIndexOfde(arr,number,x){//查找数组中，指定第几个数据的位置。arr指定数组，number数字,x个数
+
+        let len = arr.length,//传入数组长度
+            counter = 0,//计数器
+            pos = 0;//起始位置
+
+            while(pos < len && counter < x){
+                pos = arr.indexOf(number,pos);
+                if(pos == -1) break;
+                counter++;
+                pos = pos + 1;
+            }
+
+            return (pos - 1);
+
+    }
     function addNode(messageList, z_index) {//表单消息提示处理函数，参数为提示信息对象
 
         document.getElementsByTagName('body')[0].insertAdjacentHTML("beforeend",//增加提示Html Node
@@ -128,6 +144,7 @@ let public = (function () {
     return {
         addNode,
         request,
-        type_of
+        type_of,
+        arrIndexOfde
     }
 })()
