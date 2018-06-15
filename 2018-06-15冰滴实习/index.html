@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>冰滴实习</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 12px;
+        }
+
+        /*css 画带边框书签的样式*/
+
+        .box {
+            position: relative;
+            width: 65px;
+            height: 23px;
+            padding: 0 12.5px;
+            font-size: 12px;
+            background-color: #ffffff;
+            line-height: 23px;
+            text-align: center;
+            color: #666;
+            border: 1px solid #e5e5e5;
+        }
+
+        .box .before {
+            position: absolute;
+            top: -1px;
+            left: 0px;
+            border: 12.5px solid transparent;
+            border-left: 12.5px solid #e5e5e5;
+        }
+
+        .box .before_bg {
+            left: -2px;
+            border-left: 12.5px solid #ffffff;
+        }
+
+        .box .after {
+            position: absolute;
+            top: -1px;
+            left: 77px;
+            border: 12.5px solid #e5e5e5;
+            border-left: 12.5px solid transparent;
+        }
+
+        .box .after_bg {
+            left: 79px;
+            border: 12.5px solid #ffffff;
+            border-left: 12.5px solid transparent;
+        }
+
+        .red {
+            width: 70px;
+            height: 23px;
+            padding: 0 12.5px;
+            font-size: 12px;
+            background-color: #ffffff;
+            line-height: 23px;
+            text-align: center;
+            color: #D0021B;
+            border: 1px solid #D0021B;
+        }
+
+        .gray {
+            background-color: #f6f6f6;
+        }
+
+        .blue {
+            background-color: #108EE9;
+            color: #ffffff;
+        }
+
+
+        /*选择部分布局样式*/
+
+        #content {
+
+            width: 80%;
+            min-height: 600px;
+            margin: 60px auto;
+            padding: 35px 70px;
+            border: 1px solid #ddd;
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        #content .title {
+            height: 36px;
+            line-height: 36px;
+            font-size: 16px;
+            font-weight: 400;
+            color: #000;
+            text-align: center;
+            border-bottom: 1px solid #000;
+        }
+
+        #content form.getData {
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        #content form.getData .rows {
+            position: relative;
+            width: 100%;
+            margin-top: 30px;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #content form.getData .rows .prompt {
+            position: absolute;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        #content form.getData .rows input {
+            display: block;
+            margin-left: 100px;
+            width: calc(100% - 100px);
+            height: 30px;
+            line-height: 30px;
+            text-indent: 8px;
+            border: 1px solid #ccc;
+        }
+
+        #content form.getData .rows select {
+            margin-left: 100px;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+        }
+
+        #content form.getData .button {
+            width: 189px;
+            height: 30px;
+            margin: 55px auto;
+            background-color: #BE83B3;
+            font-size: 14px;
+            color: #fff;
+            line-height: 30px;
+            border-radius: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 3s;
+        }
+
+
+        #content form.getData .clear {
+            display: none;
+        }
+
+
+
+        /*展示部分布局样式*/
+
+        ul {
+            width: 397px;
+            height: 45px;
+            padding: 10px 0;
+            margin: auto;
+        }
+
+        ul li {
+            float: left;
+            list-style: none;
+            margin-right: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <article id="content">
+        <div class="title">
+            您可以选择当前步骤
+        </div>
+
+        <form class="getData">
+
+            <div class="rows">
+                <div class="prompt">当前步骤：</div>
+                <select name="show_style">
+                    <option value="1">草稿</option>
+                    <option value="2">待审核</option>
+                    <option value="3">待复核</option>
+                    <option value="4">已准核</option>
+                    <option value="5">已终止</option>
+                </select>
+            </div>
+
+            <div class="button start" onclick="index.start()">Start</div>
+        </form>
+
+        <div id="show_process">
+
+            <ul>
+                <li class="box gray">
+                    草稿
+                    <div class="after"></div>
+                    <div class="after after_bg"></div>
+                </li>
+                <li class="box blue">
+                    <div class="before"></div>
+                    <div class="before before_bg"></div>
+                    待审核
+                    <div class="after"></div>
+                    <div class="after after_bg"></div>
+                </li>
+                <li class="box">
+                    <div class="before"></div>
+                    <div class="before before_bg"></div>
+                    待复核
+                    <div class="after"></div>
+                    <div class="after after_bg"></div>
+                </li>
+                <li class="box">
+                    已核准
+                    <div class="before"></div>
+                    <div class="before before_bg"></div>
+                </li>
+            </ul>
+
+        </div>
+
+    </article>
+
+
+</body>
+<script>
+    let index = (function () {
+
+        let container = document.getElementById('show_process'); //演示区域Dom
+        let components_type = true; //组件状态，非终止情况为true，反之为false
+        let appData = [ //模拟后台反馈数据
+            [{
+                "name": "待接单",
+                "status": "WAIT_ACCEPT",
+                "isCurrentStatus": true
+            }, {
+                "name": "待发货",
+                "status": "WAIT_DELIVER"
+            }, {
+                "name": "验货入库",
+                "status": "STOCK_IN"
+            }, {
+                "name": "已完成",
+                "status": "DELIVERED"
+            }],
+            [{
+                "name": "待接单",
+                "status": "WAIT_ACCEPT",
+                "isShadowed": true
+            }, {
+                "name": "待发货",
+                "status": "WAIT_DELIVER",
+                "isShadowed": true,
+                "isCurrentStatus": true
+            }, {
+                "name": "验货入库",
+                "status": "STOCK_IN"
+            }, {
+                "name": "已完成",
+                "status": "DELIVERED"
+            }],
+            [{
+                "name": "待接单",
+                "status": "WAIT_ACCEPT",
+                "isShadowed": true
+            }, {
+                "name": "待发货",
+                "status": "WAIT_DELIVER",
+                "isShadowed": true
+            }, {
+                "name": "验货入库",
+                "status": "STOCK_IN",
+                "isShadowed": true,
+                "isCurrentStatus": true
+            }, {
+                "name": "已完成",
+                "status": "DELIVERED"
+            }],
+            [{
+                "name": "待接单",
+                "status": "WAIT_ACCEPT",
+                "isShadowed": true
+            }, {
+                "name": "待发货",
+                "status": "WAIT_DELIVER",
+                "isShadowed": true
+            }, {
+                "name": "验货入库",
+                "status": "STOCK_IN",
+                "isShadowed": true,
+            }, {
+                "name": "已完成",
+                "status": "DELIVERED",
+                "isShadowed": true,
+                "isCurrentStatus": true
+            }],
+            [{
+                "name": "已终止",
+                "status": "STOP"
+            }]
+        ]
+
+        function status_display(resArr) { //标签箭头封装函数
+
+
+            let DomStyleBg = ['', '', '', '']; //DOM class 写入情况 存储数组
+            for (let i = 0; i < resArr.length; i++) { //遍历后台反馈数据，根据情况存储类名
+                if (resArr[i].isShadowed) {
+                    DomStyleBg[i] += ' gray';
+                }
+
+                if (resArr[i].isCurrentStatus) {
+                    DomStyleBg[i] += ' blue';
+                }
+            }
+
+
+            while (container.firstChild) { //清除展示区域内现有Dom
+                container.removeChild(container.firstChild);
+            }
+
+            if (resArr.length == 1) { //判断返回数据是否仅有一个对象
+
+                //写入终止DOM
+                document.getElementById('show_process').insertAdjacentHTML("beforeend",
+                    `<ul>
+                <li class="red">
+                    已终止
+                </li>
+            </ul>`
+                );
+            } else {
+                //写入正常展示DOM
+                document.getElementById('show_process').insertAdjacentHTML("beforeend",
+                    `<ul>
+                <li class="box ${DomStyleBg[0]}">
+                    ${resArr[0].name}
+                    <div class="after"></div>
+                    <div class="after after_bg"></div>
+                </li>
+                <li class="box ${DomStyleBg[1]}">
+                    <div class="before"></div>
+                    <div class="before before_bg"></div>
+                    ${resArr[1].name}
+                    <div class="after"></div>
+                    <div class="after after_bg"></div>
+                </li>
+                <li class="box ${DomStyleBg[2]}">
+                    <div class="before"></div>
+                    <div class="before before_bg"></div>
+                    ${resArr[2].name}
+                    <div class="after"></div>
+                    <div class="after after_bg"></div>
+                </li>
+                <li class="box ${DomStyleBg[3]}">
+                    ${resArr[3].name}
+                    <div class="before"></div>
+                    <div class="before before_bg"></div>
+                </li>
+            </ul>`
+                );
+            }
+        }
+
+
+        function start() { //开始按钮处理函数
+            showStyle = document.getElementsByName('show_style')[0].value;
+
+            switch (showStyle) {//模拟后台反馈不同数据
+                case '1':
+                    status_display(appData[0]);
+                    break;
+                case '2':
+                    status_display(appData[1]);
+                    break;
+                case '3':
+                    status_display(appData[2]);
+                    break;
+                case '4':
+                    status_display(appData[3]);
+                    break;
+                case '5':
+                    status_display(appData[4]);
+                    break;
+
+            }
+
+        }
+
+
+
+        return {
+            start//暴露start函数接口
+        }
+
+    })()
+</script>
