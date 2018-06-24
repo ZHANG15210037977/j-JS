@@ -1,4 +1,65 @@
-
+<style >
+    .register-box {
+      width: 9.6rem;
+      height: 10.6rem;
+      padding: 1.16rem 2.32rem;
+      margin: 6.01rem auto;
+      border: 1px solid #ddd;
+      -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+    }
+    
+    .register-box .title {
+      height: 1.2rem;
+      line-height: 1.2rem;
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: #000;
+      text-align: center;
+      border-bottom: 1px solid #000;
+    }
+    
+    .register-box form > input {
+      width: 100%;
+      margin-top: 1.16rem;
+      height: 1.16rem;
+      line-height: 1.16rem;
+      text-indent: 0.31rem;
+      border: 1px solid #ccc;
+    }
+    .register-box form .form_row {
+      width: 100%;
+      margin-top: 1.16rem;
+      height: 0.78rem;
+      line-height: 0.78rem;
+      font-size: 0.47rem;
+    }
+    
+    .register-box form .form_row input {
+      width: 0.78rem;
+      height: 0.78rem;
+      margin-left: -5.5rem;
+    }
+    .register-box form .form_row label {
+      position: relative;
+      top: -0.194rem;
+      left: 0.39rem;
+      cursor: pointer;
+    }
+    
+    .register-box form .buttom {
+      width: 7.31rem;
+      height: 1.16rem;
+      margin: 1.13rem auto;
+      background-color: #1A81D1;
+      font-size: 0.542rem;
+      color: #fff;
+      line-height: 1.16rem;
+      border-radius: 0.542rem;
+      text-align: center;
+      cursor: pointer;
+    }
+    </style>
 
 <template>
     <div class="register-box">
@@ -26,7 +87,9 @@
 import Vue from "vue";
 import promptBox from "./promptBox";
 import Resource from "vue-resource";
+import Router from "vue-router";
 Vue.use(Resource);
+Vue.use(Router);
 let url = "http://blog.mixvjiezi.xyz/bill/";
 export default {
   name: "login",
@@ -97,7 +160,7 @@ export default {
               }
             }
 
-            this.prompt_change("老爸父亲节快乐", true);
+          this.$router.push({path:'page'});
           } else {
             //错误提示
             this.prompt_change(res.data.info);
@@ -117,67 +180,6 @@ export default {
 };
 </script>
 
-<style >
-.register-box {
-  width: 9.6rem;
-  height: 10.6rem;
-  padding: 1.16rem 2.32rem;
-  margin: 6.01rem auto;
-  border: 1px solid #ddd;
-  -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
-}
 
-.register-box .title {
-  height: 1.2rem;
-  line-height: 1.2rem;
-  font-size: 0.62rem;
-  font-weight: 400;
-  color: #000;
-  text-align: center;
-  border-bottom: 1px solid #000;
-}
-
-.register-box form > input {
-  width: 100%;
-  margin-top: 1.16rem;
-  height: 1.16rem;
-  line-height: 1.16rem;
-  text-indent: 0.31rem;
-  border: 1px solid #ccc;
-}
-.register-box form .form_row {
-  width: 100%;
-  margin-top: 1.16rem;
-  height: 0.78rem;
-  line-height: 0.78rem;
-  font-size: 0.47rem;
-}
-
-.register-box form .form_row input {
-  width: 0.78rem;
-  height: 0.78rem;
-  margin-left: -5.5rem;
-}
-.register-box form .form_row label {
-  position: relative;
-  top: -0.194rem;
-  left: 0.39rem;
-  cursor: pointer;
-}
-
-.register-box form .buttom {
-  width: 7.31rem;
-  height: 1.16rem;
-  margin: 1.13rem auto;
-  background-color: #ea0f2d;
-  font-size: 0.542rem;
-  color: #fff;
-  line-height: 1.16rem;
-  border-radius: 0.542rem;
-  text-align: center;
-  cursor: pointer;
-}
-</style>
 
 
