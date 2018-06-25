@@ -6,17 +6,18 @@
 
 .topNav {
   width: 16rem;
-  height: 1.5rem;
+  height: 2.5rem;
   background-color: #1a81d1;
   position: fixed;
   top: 0;
+  z-index: 2;
   color: #ffffff;
 }
 .topNav .return {
   float: left;
   width: 3.2rem;
-  height: 1.5rem;
-  line-height: 1.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
   text-align: center;
 }
 .topNav .return i.icon-fanhui1 {
@@ -25,8 +26,8 @@
 .topNav .logOut {
   float: right;
   width: 3.2rem;
-  height: 1.5rem;
-  line-height: 1.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
   text-align: center;
 }
 .topNav .logOut i.icon-zhuxiaologout9 {
@@ -34,7 +35,7 @@
 }
 .box{
   width: 16rem;
-  height: 1.5rem;
+  height: 2.5rem;
 }
 </style>
 <template>

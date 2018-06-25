@@ -147,7 +147,7 @@ export default {
           if (res.data.status) {
             //登陆成功
 
-            localStorage.user_data = JSON.stringify(res.data.data); //账户数据写入缓存
+            sessionStorage.user_data = JSON.stringify(res.data.data); //账户数据写入缓存
             if (this.caching_key) {
               //记住账号密码
               localStorage.user_message = JSON.stringify({
