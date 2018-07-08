@@ -74,13 +74,11 @@
 <template>
 <div>
     <div class="user_message">
-        <div>
-            <img src="../assets/head100.jpg" width="100" height="100" rel=''>
-            <div class="title">
-                <p class="p1">{{user_data.user.name}}</p>
-                <p class="p2">{{user_data.user.user}}</p>
-            </div>
-        </div>
+          <img src="../assets/head100.jpg" width="100" height="100" rel=''>
+          <div class="title">
+              <p class="p1">{{user_data.user.name}}</p>
+              <p class="p2">{{user_data.user.user}}</p>
+          </div>
     </div>
     <div class="list_linkBtn">
         <div class="row" @touchstart="list_btn_down($event)" @touchmove = "list_btn_leave($event)" @touchend="list_btn_up($event)">
@@ -104,11 +102,6 @@
             <i class="icon iconfont icon-enter more"></i>
         </div>
         <div class="row" @touchstart="list_btn_down($event)" @touchmove = "list_btn_leave($event)" @touchend="list_btn_up($event,3)">
-            <i class="icon iconfont icon-huowu" style="color:#FF7E36"></i>
-            <p class="title">货物信息</P>
-            <i class="icon iconfont icon-enter more"></i>
-        </div>
-        <div class="row" @touchstart="list_btn_down($event)" @touchmove = "list_btn_leave($event)" @touchend="list_btn_up($event,4)">
             <i class="icon iconfont icon-customer" style="color:#FF9800"></i>
             <p class="title">客户信息</P>
             <i class="icon iconfont icon-enter more"></i>
@@ -122,50 +115,54 @@ export default {
   data() {
     return {
       user_data: null,
-      transfer_key:false//跳转控制钥匙，用于控制手指移除node区域时不跳转，在区域内手指抬起跳转。
+      transfer_key: false //跳转控制钥匙，用于控制手指移除node区域时不跳转，在区域内手指抬起跳转。
     };
   },
   methods: {
     list_btn_down(event) {
       let node = event.currentTarget;
-      if(event.touches.length < 2){
+      if (event.touches.length < 2) {
         node.style.backgroundColor = "#cfcfcf";
         this.transfer_key = true;
       }
     },
     list_btn_leave(event) {
       console.log(event);
-      let node = event.currentTarget;//获取触发node
-      let div_Y_top = node.offsetTop;//获取触发node 上边框Y坐标
-      let div_Y_right = node.offsetWidth;//获取触发node 左边框X坐标
-      let div_Y_bottom = div_Y_top + node.offsetHeight;//计算触发node 下边框Y坐标
+      let node = event.currentTarget; //获取触发node
+      let div_Y_top = node.offsetTop; //获取触发node 上边框Y坐标
+      let div_Y_right = node.offsetWidth; //获取触发node 左边框X坐标
+      let div_Y_bottom = div_Y_top + node.offsetHeight; //计算触发node 下边框Y坐标
 
-      let touch_Y = event.targetTouches[0].pageY;//获取手指Y坐标
-      let touch_X = event.targetTouches[0].pageX;//获取手指X坐标
+      let touch_Y = event.targetTouches[0].pageY; //获取手指Y坐标
+      let touch_X = event.targetTouches[0].pageX; //获取手指X坐标
 
-      if (touch_Y < (div_Y_top + 20) || touch_Y > (div_Y_bottom-20) || touch_X < 20 || touch_X > (div_Y_right -20) ) {//判断是否移动超出，超出复原。区域为触发对象上下左右各缩小20px区域，为了避免划出显示bug
-        node.style.backgroundColor = null;//按钮恢复
-        this.transfer_key = false;//不传送
+      if (
+        touch_Y < div_Y_top + 20 ||
+        touch_Y > div_Y_bottom - 20 ||
+        touch_X < 20 ||
+        touch_X > div_Y_right - 20
+      ) {
+        //判断是否移动超出，超出复原。区域为触发对象上下左右各缩小20px区域，为了避免划出显示bug
+        node.style.backgroundColor = null; //按钮恢复
+        this.transfer_key = false; //不传送
       }
     },
-    list_btn_up(event,index = 0) {
-      let node = event.currentTarget;//获取触发node
-      node.style.backgroundColor = null;//按钮复原
-      if(this.transfer_key){//判断是否跳转
+    list_btn_up(event, index = 0) {
+      let node = event.currentTarget; //获取触发node
+      node.style.backgroundColor = null; //按钮复原
+      if (this.transfer_key) {
+        //判断是否跳转
         switch (index) { //跳转
-        case 1:
-          this.$router.push({ name: "page_home_todayBill" });
-          break;
-        case 2:
-          this.$router.push({ name: "page_home_stockMessage" });
-          break;
-        case 3:
-          this.$router.push({ name: "page_home_goodsMessage" });
-          break;
-        case 4:
-          this.$router.push({ name: "page_home_customerMessage" });
-          break;
-      }
+          case 1:
+            this.$router.push({ name: "page_home_todayBill" });
+            break;
+          case 2:
+            this.$router.push({ name: "page_home_stockMessage" });
+            break;
+          case 3:
+            this.$router.push({ name: "page_home_customerMessage" });
+            break;
+        }
       }
     }
   },

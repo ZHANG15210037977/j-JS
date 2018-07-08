@@ -2,8 +2,8 @@
 </style>
 
 <template>
-    <h1>客户情况</h1>
+    <h1>进货</h1>
 </template>
-<script>
+<<script>
     
 </script>

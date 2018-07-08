@@ -2,8 +2,8 @@
 </style>
 
 <template>
-    <h1>货物情况</h1>
+    <h1>添加货物</h1>
 </template>
-<<script>
+<script>
     
 </script>
