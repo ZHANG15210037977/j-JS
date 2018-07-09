@@ -45,10 +45,19 @@
   color: #ffffff;
 }
 .control_group .sort_add {
+  position: relative;
   width: 16rem;
   height: 2rem;
   background-color: #ffffff;
 }
+.control_group .sort_add .sort_buttom div{
+  width: 2.6rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.6rem;
+  text-align: center;
+  float: left;
+  }
 .control_group .sort_add div {
   width: 7.975rem;
   height: 2rem;
@@ -116,13 +125,13 @@
                 <input id="search" type="text"  v-model="search_key" @change="search_list" @focus="search_icon_key_false" @blur="search_icon_key_true" >
                 <div v-show="(!search_key && search_icon_key)" class="icon_text">
                     <i  class="icon iconfont icon-search"></i>
-                    <label for="search">搜索货物</label>
+                    <label for="search">输入查找信息</label>
                 </div>
             </div>
 
             <div class="sort_add">
                 <div style="border-right: #d7c9c9 solid 0.05rem">
-                    <p>排序<i class="icon iconfont icon-paixu1"></i></p>
+                    <p>查找<i class="icon iconfont icon-search"></i></p>
                 </div>
                 <div>
                     <router-link to="/page_home_addGood"><p>添加<i class="icon iconfont icon-zengjia" ></i></p></router-link>
