@@ -122,12 +122,12 @@ export default {
     list_btn_down(event) {
       let node = event.currentTarget;
       if (event.touches.length < 2) {
+        //判断触点是否唯一，避免多发bug
         node.style.backgroundColor = "#cfcfcf";
         this.transfer_key = true;
       }
     },
     list_btn_leave(event) {
-      console.log(event);
       let node = event.currentTarget; //获取触发node
       let div_Y_top = node.offsetTop; //获取触发node 上边框Y坐标
       let div_Y_right = node.offsetWidth; //获取触发node 左边框X坐标
@@ -137,7 +137,7 @@ export default {
       let touch_X = event.targetTouches[0].pageX; //获取手指X坐标
 
       if (
-        touch_Y < div_Y_top + 20 ||
+        touch_Y < div_Y_top + 20 ||        //判断目标框比实际小，避免滑动误判
         touch_Y > div_Y_bottom - 20 ||
         touch_X < 20 ||
         touch_X > div_Y_right - 20
