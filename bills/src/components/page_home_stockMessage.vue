@@ -130,7 +130,7 @@
 
             <div class="sort_add">
                 <div @touchstart="touch_start($event)" @touchend="goods_sort_end($event,1)"  style="border-right: #d7c9c9 solid 0.05rem">
-                    <p>查找<i class="icon iconfont icon-search"></i></p>
+                    <p>还原<i class="icon iconfont icon-zhongzhi"></i></p>
                 </div>
                 <div>
                     <router-link to="/page_home_addGood"><p>添加<i class="icon iconfont icon-zengjia" ></i></p></router-link>
@@ -178,82 +178,8 @@ export default {
       search_key: null, //查询关键词
       goods_sort_key: [, true, true, true, true], //展示数据排序控制数组，true为从大到小，false为从小到大
       bg_color: ["#E5F3FC", "#FFFFFF"], //背景色控制数组
-      base_goods: [
-        //原始货物数据数组
-        {
-          id: "1",
-          input: "2.5",
-          name: "大窑嘉宾（柠檬）我爱罗",
-          output: "15",
-          stock: "9"
-        },
-        {
-          id: "2",
-          input: "328.5",
-          name: "大窑嘉宾（可乐）",
-          output: "533",
-          stock: "12"
-        },
-        {
-          id: "3",
-          input: "12.5",
-          name: "大窑嘉宾（黑轮）",
-          output: "23.6",
-          stock: "8"
-        },
-        {
-          id: "4",
-          input: "22.5",
-          name: "雪碧",
-          output: "33.2",
-          stock: "42"
-        },
-        {
-          id: "5",
-          input: "32.5",
-          name: "可乐",
-          output: "52",
-          stock: "15"
-        }
-      ],
-      goods: [
-        //展示货物数据数组
-        {
-          id: "1",
-          input: "2.5",
-          name: "大窑嘉宾（柠檬）我爱罗",
-          output: "15",
-          stock: "9"
-        },
-        {
-          id: "2",
-          input: "328.5",
-          name: "大窑嘉宾（可乐）",
-          output: "533",
-          stock: "12"
-        },
-        {
-          id: "3",
-          input: "12.5",
-          name: "大窑嘉宾（黑轮）",
-          output: "23.6",
-          stock: "8"
-        },
-        {
-          id: "4",
-          input: "22.5",
-          name: "雪碧",
-          output: "33.2",
-          stock: "42"
-        },
-        {
-          id: "5",
-          input: "32.5",
-          name: "可乐",
-          output: "52",
-          stock: "15"
-        }
-      ]
+      base_goods: null,
+      goods: null
     };
   },
   components: {
@@ -279,7 +205,7 @@ export default {
 
     search_list(key) {
       this.search_icon_key = true; //查询信息提示显示
-      if (this.search_key != null || this.search_key ) {
+      if (this.search_key != null || this.search_key) {
         //判断查询条件是否存在
         let arr = this.base_goods.filter(item => {
           if (item.name.indexOf(this.search_key) != -1) {
@@ -293,7 +219,8 @@ export default {
           //判断检索是否为空
           this.goods = arr; //不为空刷新信息
 
-          if(this.search_key == ''){//检索谢谢是否为空字符，为空字符则赋值为空，以便还原后 有输入关键字提示
+          if (this.search_key == "") {
+            //检索谢谢是否为空字符，为空字符则赋值为空，以便还原后 有输入关键字提示
             this.search_key = null;
           }
         } else {
@@ -379,6 +306,11 @@ export default {
       }
     }
   },
-  created() {}
+  created() {
+    let goods = JSON.parse(sessionStorage.user_data).goods;//从对话缓存中读取货物列表
+    this.goods = goods;//货物展示数组初始化
+    this.base_goods = goods;//货物原始数据数组初始化
+    
+  }
 };
 </script>

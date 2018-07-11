@@ -16,6 +16,7 @@ import page_bills from '../components/page_bills';
 import page_addBills from '../components/page_addBills';
 import page_purchase from '../components/page_purchase';
 
+
 Vue.use(Router)
 
 export default new Router({

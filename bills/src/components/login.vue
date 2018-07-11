@@ -1,65 +1,65 @@
 <style >
-    .register-box {
-      width: 9.6rem;
-      height: 10.6rem;
-      padding: 1.16rem 2.32rem;
-      margin: 6.01rem auto;
-      border: 1px solid #ddd;
-      -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
-      box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
-    }
-    
-    .register-box .title {
-      height: 1.2rem;
-      line-height: 1.2rem;
-      font-size: 0.62rem;
-      font-weight: 400;
-      color: #000;
-      text-align: center;
-      border-bottom: 1px solid #000;
-    }
-    
-    .register-box form > input {
-      width: 100%;
-      margin-top: 1.16rem;
-      height: 1.16rem;
-      line-height: 1.16rem;
-      text-indent: 0.31rem;
-      border: 1px solid #ccc;
-    }
-    .register-box form .form_row {
-      width: 100%;
-      margin-top: 1.16rem;
-      height: 0.78rem;
-      line-height: 0.78rem;
-      font-size: 0.47rem;
-    }
-    
-    .register-box form .form_row input {
-      width: 0.78rem;
-      height: 0.78rem;
-      margin-left: -5.5rem;
-    }
-    .register-box form .form_row label {
-      position: relative;
-      top: -0.194rem;
-      left: 0.39rem;
-      cursor: pointer;
-    }
-    
-    .register-box form .buttom {
-      width: 7.31rem;
-      height: 1.16rem;
-      margin: 1.13rem auto;
-      background-color: #1A81D1;
-      font-size: 0.542rem;
-      color: #fff;
-      line-height: 1.16rem;
-      border-radius: 0.542rem;
-      text-align: center;
-      cursor: pointer;
-    }
-    </style>
+.register-box {
+  width: 9.6rem;
+  height: 10.6rem;
+  padding: 1.16rem 2.32rem;
+  margin: 6.01rem auto;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.register-box .title {
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: #000;
+  text-align: center;
+  border-bottom: 1px solid #000;
+}
+
+.register-box form > input {
+  width: 100%;
+  margin-top: 1.16rem;
+  height: 1.16rem;
+  line-height: 1.16rem;
+  text-indent: 0.31rem;
+  border: 1px solid #ccc;
+}
+.register-box form .form_row {
+  width: 100%;
+  margin-top: 1.16rem;
+  height: 0.78rem;
+  line-height: 0.78rem;
+  font-size: 0.47rem;
+}
+
+.register-box form .form_row input {
+  width: 0.78rem;
+  height: 0.78rem;
+  margin-left: -5.5rem;
+}
+.register-box form .form_row label {
+  position: relative;
+  top: -0.194rem;
+  left: 0.39rem;
+  cursor: pointer;
+}
+
+.register-box form .buttom {
+  width: 7.31rem;
+  height: 1.16rem;
+  margin: 1.13rem auto;
+  background-color: #1a81d1;
+  font-size: 0.542rem;
+  color: #fff;
+  line-height: 1.16rem;
+  border-radius: 0.542rem;
+  text-align: center;
+  cursor: pointer;
+}
+</style>
 
 <template>
     <div class="register-box">
@@ -110,6 +110,15 @@ export default {
     promptBox
   },
   methods: {
+    obj_arr(obj) {
+      //接受一个数字关联对象，返回一个数组
+      let returnArr = [];
+      for(let item in obj){
+        returnArr.push(obj[item]);
+      }
+
+      return returnArr;
+    },
     prompt_change(message, type = false) {
       //提示框控制函数
       if (this.prompt.key) {
@@ -147,6 +156,9 @@ export default {
           if (res.data.status) {
             //登陆成功
 
+            res.data.data.customer = this.obj_arr(res.data.data.customer);//对象转为数组
+            res.data.data.goods = this.obj_arr(res.data.data.goods);//对象转为数组
+    
             sessionStorage.user_data = JSON.stringify(res.data.data); //账户数据写入缓存
             if (this.caching_key) {
               //记住账号密码
@@ -154,13 +166,14 @@ export default {
                 user_name: this.user_name,
                 pwd: this.pwd
               });
-            } else {//不记住账号密码移除缓存信息
+            } else {
+              //不记住账号密码移除缓存信息
               if (localStorage.user_message) {
                 localStorage.removeItem("user_message");
               }
             }
 
-          this.$router.push({path:'page'});
+            this.$router.push({ path: "page" });
           } else {
             //错误提示
             this.prompt_change(res.data.info);
