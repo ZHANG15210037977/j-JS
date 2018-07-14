@@ -27,7 +27,6 @@ export default new Router({
     },
     {
       path: '/page',
-      name: 'page',
       component: page,
       children: [{
           path: '/',

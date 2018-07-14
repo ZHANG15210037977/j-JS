@@ -129,6 +129,7 @@ export default {
     },
     list_btn_leave(event) {
       let node = event.currentTarget; //获取触发node
+      console.log(event);
       let div_Y_top = node.offsetTop; //获取触发node 上边框Y坐标
       let div_Y_right = node.offsetWidth; //获取触发node 左边框X坐标
       let div_Y_bottom = div_Y_top + node.offsetHeight; //计算触发node 下边框Y坐标

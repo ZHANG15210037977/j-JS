@@ -85,25 +85,47 @@
   width: 16rem;
   margin-bottom: 2.5rem;
   background-color: #ffffff;
+  overflow: hidden;
 }
 .message_list .row {
-  display: table;
-  width: 15rem;
-  padding: 0 0.5rem;
+  position: relative;
+  width: 18.5rem;
+  padding-left: 0.5rem;
   height: 2.5rem;
+  transition: left 3s ease;
+}
+.message_list .move {
+  left: -2.5rem;
 }
 .message_list .row > div {
-  display: table-cell;
-  vertical-align: middle;
+  float: left;
   height: 2.5rem;
   width: 3rem;
+  line-height: 2.5rem;
   text-align: center;
   font-size: 0.7rem;
+}
+.message_list .row > div.gName {
+  width: 4.5rem;
+  line-height: normal;
+  display: table;
+}
+.message_list .row > div.gName div {
+  width: 4.5rem;
+  line-height: normal;
+  display: table-cell;
+  vertical-align: middle;
 }
 .message_list .row .lt {
   width: 4.5rem;
 }
-
+.message_list .row .null {
+  width: 0.5rem;
+}
+.message_list .row .btn {
+  margin-left: 0.5rem;
+  background-color: red;
+}
 .message_list .title {
   height: 1.5rem;
 }
@@ -147,11 +169,14 @@
             <div style="color:#77C34F;" class="lt" @touchstart="touch_start($event)" @touchend="goods_sort_end($event,4)"><i class="icon iconfont icon-kucun"></i>库存</div>
           </div>
 
-          <div v-for="(item,index) in goods" :style="{backgroundColor:bg_color[index%2]}"  class="row">
-            <div class="lt">{{item.name}}</div>
+          <div @touchstart="get_touch_btn_start_X($event)" @touchmove="change_btn($event,index)" v-for="(item,index) in goods" :style="{backgroundColor:bg_color[index%2]}"  class="row">
+            <div class="gName">
+              <div class="lt">{{item.name}}</div>
+            </div>
             <div>{{item.input}}</div>
             <div>{{item.output}}</div>
             <div class="lt">{{item.stock}}</div>
+            <div class="btn">修改</div>
           </div>
         </div>
 
@@ -179,7 +204,8 @@ export default {
       goods_sort_key: [, true, true, true, true], //展示数据排序控制数组，true为从大到小，false为从小到大
       bg_color: ["#E5F3FC", "#FFFFFF"], //背景色控制数组
       base_goods: null,
-      goods: null
+      goods: null,
+      touch_btn_start_X: null
     };
   },
   components: {
@@ -304,13 +330,35 @@ export default {
           this.goods = arr;
           break;
       }
+    },
+    get_touch_btn_start_X(event) {
+
+      if (event.touches.length < 2) {
+        this.touch_btn_start_X = event.targetTouches[0].pageX;
+      }
+    },
+    change_btn(event, index) {
+      //货物信息修改按钮展示函数
+
+      let node = event.currentTarget;
+      if (event.touches.length < 2) {
+        //判断触点是否唯一，避免多发bug
+        if (event.targetTouches[0].pageX - this.touch_btn_start_X > 50) {
+          //若向右移动距离超过定值，则按钮隐藏
+          node.style.left = "";
+        }
+
+        if (this.touch_btn_start_X - event.targetTouches[0].pageX > 50) {
+          //若向左移动距离超过定值，则按钮隐藏
+          node.style.left = "-2.5rem";
+        }
+      }
     }
   },
   created() {
-    let goods = JSON.parse(sessionStorage.user_data).goods;//从对话缓存中读取货物列表
-    this.goods = goods;//货物展示数组初始化
-    this.base_goods = goods;//货物原始数据数组初始化
-    
+    let goods = JSON.parse(sessionStorage.user_data).goods; //从对话缓存中读取货物列表
+    this.goods = goods; //货物展示数组初始化
+    this.base_goods = goods; //货物原始数据数组初始化
   }
 };
 </script>
