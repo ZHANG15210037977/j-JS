@@ -143,7 +143,7 @@
     <div>
         <div class="control_group">
             <div class="search">
-                <input id="search" type="text"  v-model="search_key"  @focus="search_icon_key_false()" @blur="search_list()" >
+                <input id="search" type="text"  v-model="search_key"  @focus="search_focus()" @blur="search_blur()" @input="search_list()" >
                 <div v-show="(!search_key && search_icon_key)" class="icon_text">
                     <i  class="icon iconfont icon-search"></i>
                     <label for="search">输入查找信息</label>
@@ -229,7 +229,7 @@ export default {
       }
     },
 
-    search_list(key) {
+    search_list() {
       this.search_icon_key = true; //查询信息提示显示
       if (this.search_key != null || this.search_key) {
         //判断查询条件是否存在
@@ -252,12 +252,15 @@ export default {
         } else {
           this.prompt_change("您查询的信息不存在"); //为空提示不刷新信息
         }
-      } else {
-        this.prompt_change("请输入查询信息"); //查询条件不存在提示引导
       }
     },
-    search_icon_key_false() {
+    search_focus() {
       this.search_icon_key = false; //查询信息提示隐藏
+    },
+    search_blur(){
+      if(this.search_key == null || this.search_key == ''){
+        this.search_icon_key = true;
+      }
     },
     touch_start(event) {
       //按钮点击变灰函数
