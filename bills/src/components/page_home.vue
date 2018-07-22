@@ -104,7 +104,7 @@
         <div class="row" @touchstart="list_btn_down($event)" @touchmove = "list_btn_leave($event)" @touchend="list_btn_up($event,3)">
             <i class="icon iconfont icon-customer" style="color:#FF9800"></i>
             <p class="title">客户信息</P>
-            <i class="icon iconfont icon-enter more"></i>
+            <i class="icon iconfont icon-enter more"></i> // njxsd
         </div>
     </div>
 </div>
