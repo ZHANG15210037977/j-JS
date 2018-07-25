@@ -70,7 +70,7 @@ export default {
         this.index = index; //当前标签id更新
         switch (index) { //跳转
           case 0:
-            this.$router.push({ name: "page_home" });
+            this.$router.push({ name: "page_home" });//xxxx
             break;
           case 1:
             this.$router.push({ name: "page_addBills" });
